@@ -1,1 +1,1 @@
-![fullFucker](https://github.com/user-attachments/assets/1252046e-dfd7-42c6-b807-a2d70eecf1c9)
+![FUllerFuckEr](https://github.com/user-attachments/assets/8e32f141-b151-467d-917d-68f5f7824711)
