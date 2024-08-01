@@ -1,0 +1,5643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>291</width>
+    <height>318</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	font: 11pt &quot;Poppins&quot;;
+    background:#121212;
+    color:rgb(255,255,255);
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////
+TheMinds Labels
+///////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////
+QTextEdit
+///////////////////////////////////////////////////////////////////////////// */
+QTextEdit {
+    border:none;
+	font-size: 12pt;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QToolTip
+///////////////////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(12, 12, 12,50);
+    border: 1px solid  rgb(129, 179, 234);
+    border-radius: 5px;
+    padding:4px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QTimeEdit, QDoubleSpinBox, QSpinBox
+///////////////////////////////////////////////////////////////////////////// */
+QDoubleSpinBox,
+QSpinBox {
+    border:none;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QLabel
+///////////////////////////////////////////////////////////////////////////// */
+QLabel {
+    background:transparent;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QComboBox
+///////////////////////////////////////////////////////////////////////////// */
+QComboBox {
+    background-color: transparent; border:1px inset rgb(28,32,23); border-radius:2px; padding: 3px;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+#lily_mood_entry_date, #lily_diet_date, #lily_walk_date
+///////////////////////////////////////////////////////////////////////////// */
+#lily_diet_delete_btn,
+#lily_mood_delete_btn,
+#lily_walk_delete_btn {
+    border:none;
+    image: url(:/icons/UpdatedIcons/lily_d_norm.png);
+    max-width:20px;
+    min-width:20px;
+    max-height:20px;
+    min-height:20px;
+}
+#lily_diet_delete_btn:hover,
+#lily_mood_delete_btn:hover,
+#lily_walk_delete_btn:hover {
+    image: url(:/icons/UpdatedIcons/lily_c_hover.png);
+}
+#lily_diet_delete_btn:pressed,
+#lily_mood_delete_btn:pressed,
+#lily_walk_delete_btn:pressed {
+    image: url(:/icons/UpdatedIcons/lily_d_press.png);
+}
+
+#lily_mood_entry_date,
+#lily_diet_date,
+#lily_walk_date {
+    color:rgb(200,170,200);
+}
+
+#lily_mood_entry_date:focus,
+#lily_diet_date:focus,
+#lily_walk_date:focus {
+    color:#fff;
+}
+
+/* ------------------------------------------------- 
+    Data // TableView nav btn frame
+-------------------------------------------------  */
+#lilys_data_nav_btn_frame &gt; QPushButton {
+    border-radius:3px;
+    padding:2px 4px;
+    border:none;
+    color:#fff;
+    min-width:35px;
+    max-width:35px;
+    min-height:35px;
+    max-height:35px;
+    background:transparent;
+}
+
+#lilys_data_nav_btn_frame &gt; QPushButton:hover {
+    color:#fff;
+    font-size:11pt;
+    margin-top:2px;
+    margin-left:2px;
+    background:transparent;
+    /*background-color:rgb(255,255,255); */
+}
+
+#lilys_data_nav_btn_frame &gt; QPushButton:checked {
+    font-weight:bold;
+    margin:0px;
+     background:transparent;
+    color:#fff;
+}
+
+#lilys_data_nav_btn_frame &gt; QPushButton:pressed {
+    background:transparent;
+    font-weight:bold;
+    font-size:12pt;
+    margin:0px;
+    color:#fff;
+}
+
+#lilys_data_nav_btn_frame &gt; QPushButton:checked:hover {
+    font-weight:bold;
+    margin:0px;
+    color:#fff;
+    background:transparent;
+}
+
+#lilys_data_nav_btn_frame &gt; QPushButton:checked:pressed {
+background:transparent;
+    font-weight:bold;
+    margin:0px;
+    color:#fff;
+}
+
+#lily_walk_btn,
+#lily_walk_btn_2,
+#lily_walk_btn_3 {
+	border:none;
+	max-width:35px;
+	min-width:35px;
+	max-height:35px;
+	min-height:35px;
+	image: url(:/icons/UpdatedIcons/lily_w_norm.png);
+}
+
+#lily_walk_btn:hover,
+#lily_walk_btn_2:hover,
+#lily_walk_btn_3:hover {
+    image: url(:/icons/UpdatedIcons/lily_w_hover.png);
+}
+
+#lily_walk_btn:pressed,
+#lily_walk_btn_2:pressed,
+#lily_walk_btn_3:pressed {
+    image: url(:/icons/UpdatedIcons/lily_w_press.png);
+}
+
+#lily_ate_check_2,
+#lily_ate_check {
+    border:none;
+    image: url(:/icons/UpdatedIcons/lily_e_norm.png);
+	max-width:40px;
+	min-width:40px;
+	max-height:40px;
+	min-height:40px;
+}
+
+#lily_ate_check_2:hover,
+#lily_ate_check:hover {
+    image: url(:/icons/UpdatedIcons/lily_e_hover.png);
+}
+
+#lily_ate_check_2:pressed,
+#lily_ate_check:pressed {
+    image: url(:/icons/UpdatedIcons/lily_e_press.png);
+}
+
+#lily_ate_check_2:checked,
+#lily_ate_check:checked {
+    image: url(:/icons/UpdatedIcons/lilybowlchecked.png);
+}
+
+#lily_walk_btn:checked:hover,
+#lily_walk_btn_2:checked:hover,
+#lily_walk_btn_3:checked:hover {
+    image: url(:/icons/UpdatedIcons/lily_paw_hovered.png);
+}
+
+#lily_walk_btn:checked:pressed,
+#lily_walk_btn_2:checked:pressed,
+#lily_walk_btn_3:checked:pressed {
+    image: url(:/icons/UpdatedIcons/lily_paw_pressed.png);
+}
+
+
+#lily_walk_btn:checked,
+#lily_walk_btn_2:checked,
+#lily_walk_btn_3:checked {
+    image: url(:/icons/UpdatedIcons/lilychecked.png);
+}
+
+#lily_behavior_3,
+#lily_behavior_2,
+#lily_behavior {
+    color:rgb(205,178,214);
+}
+
+#lily_behavior_3:hover,
+#lily_behavior_2:hover,
+#lily_behavior:hover {
+    color: rgb(225,198,234);
+}
+
+#lily_behavior_3:focus,
+#lily_behavior_2:focus,
+#lily_behavior:focus {
+    color: rgb(245,218,254);
+}
+
+#lily_behavior_slider_3::handle:horizontal,
+#lily_behavior_slider_2::handle:horizontal,
+#lily_behavior_slider::handle:horizontal {
+    background:rgb(160,130,160);
+}
+#lily_behavior_slider_3::handle:horizontal:hover,
+#lily_behavior_slider_2::handle:horizontal:hover,
+#lily_behavior_slider::handle:horizontal:hover {
+    background:rgb(190,160,190);
+}
+#lily_behavior_slider_3::handle:horizontal:pressed,
+#lily_behavior_slider_2::handle:horizontal:pressed,
+#lily_behavior_slider::handle:horizontal:pressed {
+    background:rgb(140,110,140);
+}
+
+#lily_behavior_slider_3::groove:horizontal:hover,
+#lily_behavior_slider_2::groove:horizontal:hover,
+#lily_behavior_slider::groove:horizontal:hover {
+    background:rgba(160,130,160,45);
+}
+
+#lily_behavior_slider_3::groove:horizontal,
+#lily_behavior_slider_2::groove:horizontal,
+#lily_behavior_slider::groove:horizontal {
+    background:rgba(160,130,160,45);
+}
+
+#lily_gait,
+#lily_gait_2,
+#lily_gait_3 {
+    color:rgb(100,70,100);
+}
+#lily_gait:hover,
+#lily_gait_2:hover,
+#lily_gait_3:hover {
+    color: rgb(120,90,120);
+}
+#lily_gait:focus,
+#lily_gait_2:focus,
+#lily_gait_3:focus {
+    color: rgb(140,110,140);
+}
+
+#lily_gait_slider::handle:horizontal,
+#lily_gait_slider_2::handle:horizontal,
+#lily_gait_slider_3::handle:horizontal {
+    background:rgb(100,70,100);
+}
+
+#lily_gait_slider::handle:horizontal:hover,
+#lily_gait_slider_2::handle:horizontal:hover,
+#lily_gait_slider_3::handle:horizontal:hover {
+    background:rgb(130,100,130);
+}
+
+#lily_gait_slider::handle:horizontal:pressed,
+#lily_gait_slider_2::handle:horizontal:pressed,
+#lily_gait_slider_3::handle:horizontal:pressed {
+    background:rgb(80,50,80);
+}
+
+
+#lily_gait_slider::groove:horizontal:hover,
+#lily_gait_slider_2::groove:horizontal:hover
+#lily_gait_slider_3::groove:horizontal:hover {
+    background:rgba(100,70,100,45);
+}
+#lily_gait_slider::groove:horizontal,
+#lily_gait_slider_2::groove:horizontal,
+#lily_gait_slider_3::groove:horizontal {
+    background:rgba(100,70,100,45);
+}
+
+/* ------------------------------------------------- 
+Lilys Table Views
+------------------------------------------------- */
+#time_in_room_table,
+#lily_diet_table,
+#lily_mood_table,
+#lily_walk_table,
+#lily_notes_table { 
+    background-color: transparent;
+    alternate-background-color: rgb(100, 157, 220);
+    selection-background-color: #7e57c2;
+    gridline-color:transparent;
+    color:rgb(245,245,245);
+}
+#time_in_room_table::item,
+#lily_diet_table::item,
+#lily_mood_table::item,
+#lily_walk_table::item,
+#lily_notes_table::item {
+    padding: 1px;
+    background:rgb(180, 149, 210);
+}
+#lily_notes_table::item:selected,
+#time_in_room_table::item:selected,
+#lily_diet_table::item:selected,
+#lily_mood_table::item:selected,
+#lily_walk_table::item:selected {
+    color: #fff;
+    background:rgb(23, 23, 23);
+}
+
+/*
+LILY MOOD SLIDERS AND SPINBOXES ETC.
+*/
+#lily_time_in_room_slider::handle:horizontal {
+    background:rgb(205,178,214);
+}
+#lily_time_in_room_slider::handle:horizontal:hover {
+    background:rgb(235,208,244);
+}
+#lily_time_in_room_slider::handle:horizontal:pressed {
+    background:rgb(185,158,194);
+}
+
+#lily_time_in_room_slider::groove:horizontal:hover {
+    background:rgba(205,178,214,45);
+}
+#lily_time_in_room_slider::groove:horizontal {
+    background:rgba(205,178,214,45);
+}
+#lily_mood_slider::handle:horizontal {
+    background:rgb(160,130,160);
+}
+#lily_mood_slider::handle:horizontal:hover {
+    background:rgb(190,160,190);
+}
+#lily_mood_slider::handle:horizontal:pressed {
+    background:rgb(140,110,140);
+}
+#lily_mood_slider::groove:horizontal:hover {
+    background:rgba(160,130,160,45);
+}
+#lily_mood_slider::groove:horizontal {
+    background:rgba(160,130,160,45);
+}
+#lily_mood_activity_slider::handle:horizontal {
+    background:rgb(130,100,130);
+}
+#lily_mood_activity_slider::handle:horizontal:hover {
+    background:rgb(160,130,160);
+}
+#lily_mood_activity_slider::handle:horizontal:pressed {
+    background:rgb(110,80,110);
+}
+
+#lily_mood_activity_slider::groove:horizontal:hover {
+    background:rgba(130,100,130,45);
+}
+#lily_mood_activity_slider::groove:horizontal {
+    background:rgba(130,100,130,45);
+}
+#lily_energy_slider::handle:horizontal {
+    background:rgb(100,70,100);
+}
+
+#lily_energy_slider::handle:horizontal:hover {
+    background:rgb(130,100,130);
+}
+
+#lily_energy_slider::handle:horizontal:pressed {
+    background:rgb(80,50,80);
+}
+
+#lily_energy_slider::groove:horizontal:hover {
+    background:rgba(100,70,100,45);
+}
+#lily_energy_slider::groove:horizontal {
+    background:rgba(100,70,100,45);
+}
+
+/* Time in Room */
+#lily_time_in_room {
+    background:transparent;
+    color:rgb(205,178,214);
+}
+
+#lily_time_in_room:hover {
+    color: rgb(225,198,234);
+}
+#lily_time_in_room:focus {
+    color: rgb(245,218,254);
+}
+
+/* Lily Mood */
+#lily_mood {
+    background:transparent;
+    color:rgb(160,130,160);
+}
+#lily_mood:hover {
+    color: rgb(180,150,180);
+}
+#lily_mood:focus {
+    color: rgb(200,170,200);
+}
+
+/* Lily Activity */
+#lily_activity  {
+    background:transparent;
+    color:rgb(130,100,130);
+}
+#lily_activity:hover {
+    color: rgb(150,120,150);
+}
+#lily_activity:focus {
+    color: rgb(170,140,170);
+}
+
+/* Lily Energy */
+#lily_energy {
+    background:transparent;
+    color:rgb(100,70,100);
+}
+#lily_energy:hover {
+    color: rgb(120,90,120);
+}
+#lily_energy:focus {
+    color: rgb(140,110,140);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QLineEdit
+///////////////////////////////////////////////////////////////////////////// */
+    QLineEdit {
+    border:none;
+    background: transparent;
+}
+QLineEdit:hover {
+    border-bottom:1px solid rgba(123, 123, 123, 150);
+}
+QLineEdit:focus {
+    border-bottom:1px solid rgba(123, 123, 123, 200);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QCheckBox
+///////////////////////////////////////////////////////////////////////////// */
+QCheckBox::indicator {
+    font-weight:bold;
+    background-color: transparent;
+    border: 2px solid rgb(33,143,109);
+    border-radius: 6px;
+    width: 8px;
+    height: 8px;
+    margin-left:8px;
+    margin-right:8px;
+}
+QCheckBox::indicator:hover {
+    border: 2px solid white;
+}
+QCheckBox::indicator:checked {
+    background: rgb(33,143,109);
+    border: 2px solid rgb(33,143,109);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+QSlider
+///////////////////////////////////////////////////////////////////////////// */
+QSlider:horizontal {
+    background:transparent;
+border:none;
+}
+QSlider::groove:horizontal {
+    border-radius: 8px;
+    height: 16px;
+    margin: 0px;
+    background:rgb(22, 22, 22);
+    }
+
+QSlider::groove:horizontal:hover {
+    background: rgb(38, 38, 38);
+}
+QSlider::handle:horizontal {
+    background: rgb(255, 255, 255);
+    height: 16px;
+    width: 16px;
+    margin: 0px;
+    border-radius:8px;
+}
+QSlider::sub-page:horizontal {
+    background:transparent;
+	border-radius:6px;
+}
+QSlider::handle:horizontal:hover {
+    background-color: white;
+}
+QSlider::handle:horizontal:pressed {
+    background-color:white;
+}
+/*
+VERTICAL
+///////////////////////////////////////////////////////////////////////////// */
+QSlider::groove:vertical {
+    border-radius: 11px;
+    width: 22px;
+    margin: 0px;
+	background-color: rgba(33,33,33,100);
+}
+
+QSlider::groove:vertical:hover {
+	background-color: rgba(44,44,44,100);
+}
+QSlider::handle:vertical {
+    background-color: rgb(255, 88, 71);
+	border: none;
+    height: 22px;
+    width: 22px;
+    margin: 0px;
+	border-radius: 11px;
+}
+QSlider::handle:vertical:hover {
+    background-color: rgb(195, 155, 255);
+}
+QSlider::handle:vertical:pressed {
+    background-color: rgb(255, 121, 198);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////
+Time/DateEdit
+///////////////////////////////////////////////////////////////////////////// */
+QTimeEdit,
+QDateEdit {
+    background-color: transparent;
+    border:None;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////
+QTableView
+////////////////////////////////////////////////////////////////////////////// */
+QTableView {
+    background-color: transparent;
+    alternate-background-color: rgb(101, 147, 128);
+    selection-background-color: #7e57c2;
+    gridline-color: rgb(90, 90, 90);color:rgb(245,245,245);
+}
+
+QTableView::item {
+    padding: 1px;
+    background:rgb(216,79,79);
+}
+QTableView::item:selected {
+    color: #fff;
+    background:rgb(23, 23, 23);
+}
+
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+																																	 BASICS MOD
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
+#sleep_table,
+#basics_table {background-color: transparent;alternate-background-color: rgb(100, 157, 220);selection-background-color: #7e57c2;gridline-color:transparent;color:rgb(245,245,245);}
+#sleep_table::item,
+#basics_table::item {padding: 1px;background:rgb(36, 143, 109);}
+#sleep_table::item:selected,
+#basics_table::item:selected {color: #fff;background:rgb(23, 23, 23);}
+
+#notes_basics {border:1px solid rgb(54, 163, 129); 	border-radius:6px; 	padding:4px 5px; 	color:rgb(54, 163, 129);}
+#notes_basics:focus {color:rgb(84, 193, 159); 	border:1px solid rgb(84, 193, 159);}
+#notes_basics:hover {color:rgb(73,183,149); 	border-color:rgb(73,183,149);}
+
+#sleep_commit_btn,
+#basics_commit_btn {border:none;image: url(:/icons/UpdatedIcons/basics_c_norm.png);max-width:21px;min-width:21px;max-height:21px;min-height:21px;}
+#sleep_commit_btn:hover,
+#basics_commit_btn:hover {image: url(:/icons/UpdatedIcons/bas_com_norm.png);}
+#sleep_commit_btn:pressed,
+#basics_commit_btn:pressed {image: url(:/icons/UpdatedIcons/bas_com_press.png);}
+#sleep_delete_btn,
+#basics_delete_btn {border:none;image: url(:/icons/UpdatedIcons/basics_d_norm.png);max-width:25px;min-width:25px;max-height:25px;min-height:25px;}
+#sleep_delete_btn:hover,
+#basics_delete_btn:hover {image: url(:/icons/UpdatedIcons/bas_del_norm.png);}
+#sleep_delete_btn:pressed,
+#basics_delete_btn:pressed {image: url(:/icons/UpdatedIcons/bas_dele_press.png);}
+
+#basics_data_btn {image: url(:/newPrefix/body_data_btn_norm.png);}
+#basics_data_btn:hover {image: url(:/icons/body_hover.png);}
+#basics_data_btn:checked {image: url(:/icons/body_checked.png);}
+#basics_data_btn:checked:hover {image: url(:/icons/body_hover.png);}
+
+#sleep_data_btn {border:none;image: url(:/icons/UpdatedIcons/sleep_norm.png);max-width:35px;min-width:35px;max-height:35px;min-height:35px;}
+#sleep_data_btn:hover {image: url(:/icons/UpdatedIcons/sleep_hover.png);}
+#sleep_data_btn:pressed {image: url(:/icons/UpdatedIcons/sleep_press.png);}
+#sleep_data_btn:checked {image: url(:/icons/UpdatedIcons/sleep_checked.png);}
+#sleep_data_btn:checked:hover {image: url(:/icons/UpdatedIcons/sleep_hover.png);}
+#sleep_data_btn:checked:pressed {image: url(:/icons/UpdatedIcons/sleep_norm.png);}
+
+#woke_up_like_spinbox, #sleep_quality, #effort_spinbox {
+font-size:10pt;
+background:transparent;
+}
+#woke_up_like_spinbox:hover, #sleep_quality:hover, #effort_spinbox:hover {
+background:transparent;
+color:rgb(33, 143, 109);
+}
+
+#basics_basics_frame &gt; QCheckBox {
+    background:transparent;
+    font-size:10pt;
+}
+#basics_basics_frame &gt; QCheckBox:hover {
+    background:transparent;
+    color:rgb(33, 143, 109);
+}
+#basics_basics_frame &gt; QCheckBox::indicator {
+    border: 2px solid rgb(33, 143, 109);
+	width: 7px;
+	height: 7px;
+	border-radius: 5px;
+}
+#yoga_effort_lbl, #awake_lbl, #sleep_lbl, #sleep_quality_lbl, #woke_like_lbl, #hrs_slept_lbl, #bedtime_lbl {color:#fff;}
+#yoga_effort_lbl:hover, #awake_lbl:hover, #sleep_lbl:hover, #sleep_quality_lbl:hover, #woke_like_lbl:hover, #hrs_slept_lbl:hover, #bedtime_lbl:hover {color:rgb(34, 143, 109);}
+#basics_basics_frame &gt; QCheckBox::indicator:hover {
+    border: 2px solid rgb(245, 245, 245);
+}
+#basics_basics_frame &gt; QCheckBox::indicator:checked {
+    border: 2px solid rgb(33, 143, 109);
+	background: rgb(33, 143, 109);
+}
+/* BASICS MOD  QTimeEdit
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+#basics_basics_frame &gt;QTimeEdit {
+    background-color: transparent;
+}
+#basics_basics_frame &gt;QTimeEdit:hover {
+    color:rgb(33, 143, 109);
+}
+#basics_basics_frame &gt;QTimeEdit:focus {
+    color:rgb(33, 143, 109);
+}
+#time_goal_timer,
+#awake_time,
+#asleep_time,
+#shower_time,
+#teeth_brushed_at_time_2,
+#teeth_brushed_at_time,
+#yoga_time_entry {
+color:rgb(33, 143, 109);
+background:transparent;
+}
+
+#time_goal_timer:hover,
+#awake_time:hover,
+#asleep_time:hover,
+#shower_time:hover,
+#teeth_brushed_at_time_2:hover,
+#teeth_brushed_at_time:hover,
+#yoga_time_entry:hover {
+color:rgb(63, 173, 139);
+}
+#time_goal_timer:focus,
+#awake_time:focus,
+#asleep_time:focus,
+#shower_time:focus,
+#teeth_brushed_at_time_2:focus,
+#teeth_brushed_at_time:focus,
+#yoga_time_entry:focus {
+color:rgb(255, 255, 255);
+}
+
+
+#sleep_date,  #basics_date {color:rgb(33, 143, 109);}
+#sleep_date:hover, #basics_date:hover {color:rgb(34, 143, 109);}
+#sleep_date:focus, #basics_date:focus {color::rgb(54, 163, 129);}
+
+/*  BASICS MOD QCheckBox
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+#basics_sleep_frame &gt; QCheckBox,
+#basics_basics_frame &gt; QCheckBox {
+    background:transparent;
+    font-size:10pt;
+}
+#basics_sleep_frame &gt; QCheckBox:hover,
+#basics_basics_frame &gt; QCheckBox:hover {
+    background:transparent;
+    color:rgb(33, 143, 109);
+}
+#basics_sleep_frame &gt; QCheckBox::indicator,
+#basics_basics_frame &gt; QCheckBox::indicator {
+    border: 2px solid rgb(33, 143, 109);
+	width: 7px;
+	height: 7px;
+	border-radius: 5px;
+}
+#basics_sleep_frame &gt; QCheckBox::indicator:hover,
+#basics_basics_frame &gt; QCheckBox::indicator:hover {
+    border: 2px solid rgb(245, 245, 245);
+}
+#basics_sleep_frame &gt; QCheckBox::indicator:checked,
+#basics_basics_frame &gt; QCheckBox::indicator:checked {
+    border: 2px solid rgb(33, 143, 109);
+	background: rgb(33, 143, 109);
+}
+/* BASICS MOD QTimeEdit
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+#basics_commit_pane &gt; QDateEdit,
+#basics_sleep_frame &gt; QTimeEdit,
+#basics_basics_frame &gt; QTimeEdit {
+    background-color: transparent;
+}
+#basics_commit_pane &gt; QDateEdit:hover,
+#basics_sleep_frame &gt; QTimeEdit:hover,
+#basics_basics_frame &gt; QTimeEdit:hover {
+    color:rgb(33, 143, 109);
+}
+#basics_commit_pane &gt; QDateEdit:focus,
+#basics_sleep_frame &gt; QTimeEdit:focus,
+#basics_basics_frame &gt; QTimeEdit:focus {
+    color:rgb(33, 143, 109);
+}
+
+
+
+/* QLabel
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+#basics_sleep_frame &gt; QLabel,
+#basics_basics_frame &gt; QLabel {
+    background-color: transparent;
+    font-size:10pt;
+}
+
+#basics_sleep_frame &gt; QLabel:hover,
+#basics_basics_frame &gt; QLabel:hover {
+    color:rgb(33, 143, 109);
+}
+
+/* QSpinBox
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+#basics_sleep_frame &gt; QSpinBox,
+#basics_basics_frame &gt; QSpinBox {
+background:transparent;
+}
+
+#basics_sleep_frame &gt; QSpinBox:hover,
+#basics_basics_frame &gt; QSpinBox:hover {
+background:transparent;
+color:rgb(33, 143, 109);
+}
+
+#basics_sleep_frame &gt; QSpinBox:indicator,
+#basics_basics_frame &gt; QSpinBox:indicator {
+    border: 2px solid rgb(33, 143, 109);
+	width: 7px;
+	height: 7px;
+	border-radius: 5px;
+}
+
+#basics_sleep_frame &gt; QSpinBox::indicator:hover,
+#basics_basics_frame &gt; QSpinBox::indicator:hover {
+    border: 2px solid rgb(245, 245, 245);
+}
+
+#basics_sleep_frame &gt; QSpinBox::indicator:checked,
+#basics_basics_frame &gt; QSpinBox::indicator:checked {
+    border: 2px solid rgb(33, 143, 109);
+	background: 2px solid rgb(33, 143, 109);
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////
+									QScrollBar
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+QScrollBar:horizontal {border: none;background:transparent;height: 12px;margin: 0px 10px 0px 10px;border-radius: 3px;}
+QScrollBar::handle:horizontal {background: rgb(35,35,37);min-width:24px;border-radius: 4px}
+QScrollBar::add-line:horizontal {border: none;background: transparent;width: 20px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;subcontrol-position: right;subcontrol-origin: margin;}
+QScrollBar::sub-line:horizontal {border: none;background: transparent;width: 20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;subcontrol-position: left;subcontrol-origin: margin;}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {background: none;}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {background: transparent;}
+QScrollBar:vertical {border: none;background-color:transparent;width: 12px;margin: 10px 0px 10px 0px;border-radius: 4px;}
+QScrollBar::handle:vertical {background: rgb(35,35,37);min-height: 12px;border-radius: 4px}
+QScrollBar::add-line:vertical {border: none;background: transparent;height: 20px;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;subcontrol-position: bottom;subcontrol-origin: margin;}
+QScrollBar::sub-line:vertical {border: none;background: transparent;height: 20px;border-top-left-radius: 4px;border-top-right-radius: 4px;subcontrol-position: top;subcontrol-origin: margin;}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {background: none;}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {background: transparent;}
+
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_20">
+    <property name="leftMargin">
+     <number>6</number>
+    </property>
+    <property name="topMargin">
+     <number>6</number>
+    </property>
+    <property name="rightMargin">
+     <number>6</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="mainStack">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="bds_page">
+       <layout class="QGridLayout" name="gridLayout_75">
+        <item row="1" column="0">
+         <widget class="QFrame" name="mainframe">
+          <property name="minimumSize">
+           <size>
+            <width>245</width>
+            <height>0</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>4</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>4</number>
+              </property>
+              <item row="1" column="2" alignment="Qt::AlignRight">
+               <widget class="QTimeEdit" name="time_awake">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QTimeEdit
+/////////////////////////////////////////////////////////////// */
+QTimeEdit {color:rgb(132,127,239);}
+QTimeEdit:hover {color: rgb(152,147,255);}
+QTimeEdit:focus {color: rgb(172,167,255);}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>hh:mm AP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="woke_like_lbl">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QLabel
+/////////////////////////////////////////////////////////////// */
+QLabel {
+font-weight:300;
+	color: rgb(132, 127, 239);
+}
+QLabel:hover {
+	color: rgb(162, 157, 255);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>woke.up.like</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QSlider" name="sleep_quality_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>17</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+    /* ///////////////////////////////////////////////////////////////
+    QSlider Colors
+    /////////////////////////////////////////////////////////////// */
+    
+    QSlider::handle:horizontal {background:rgb(132,127,239);}
+    QSlider::handle:horizontal:hover {background:rgb(162,157,255);}
+    QSlider::handle:horizontal:pressed {background:rgb(112,107,219);}
+    QSlider::groove:horizontal:hover {background:rgba(132,127,239,0.35);}
+    QSlider::groove:horizontal {background:rgba(132,127,239,0.15);}
+
+    </string>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QSlider" name="woke_up_like_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>17</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+    /* ///////////////////////////////////////////////////////////////
+    QSlider Colors
+    /////////////////////////////////////////////////////////////// */
+    
+    QSlider::handle:horizontal {background:rgb(132,127,239);}
+    QSlider::handle:horizontal:hover {background:rgb(162,157,255);}
+    QSlider::handle:horizontal:pressed {background:rgb(112,107,219);}
+    QSlider::groove:horizontal:hover {background:rgba(132,127,239,0.35);}
+    QSlider::groove:horizontal {background:rgba(132,127,239,0.15);}
+
+    </string>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="sleep_quality_lbl">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QLabel
+/////////////////////////////////////////////////////////////// */
+QLabel {
+font-weight:300;
+	color: rgb(132, 127, 239);
+}
+QLabel:hover {
+	color: rgb(162, 157, 255);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>sleep.quality</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QSpinBox" name="sleep_quality">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {color:rgb(132,127,239);}
+QSpinBox:hover {color: rgb(192,187,255);}
+QSpinBox:focus {color: rgb(162,157,255);}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="total_hours_slept">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QTimeEdit
+/////////////////////////////////////////////////////////////// */
+QLineEdit {color:rgb(132,127,239);border:none;}
+QLineEdit:hover {color: rgb(152,147,255);border:none;}
+QLineEdit:focus {color: rgb(172,167,255);border:none;}
+</string>
+                </property>
+                <property name="text">
+                 <string>⌘+3</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="placeholderText">
+                 <string>press opt+H to get total hours.</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QSpinBox" name="woke_up_like">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {color:rgb(132,127,239);}
+QSpinBox:hover {color: rgb(192,187,255);}
+QSpinBox:focus {color: rgb(162,157,255);}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" alignment="Qt::AlignRight">
+               <widget class="QTimeEdit" name="time_asleep">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QTimeEdit
+/////////////////////////////////////////////////////////////// */
+QTimeEdit {color:rgb(132,127,239);}
+QTimeEdit:hover {color: rgb(152,147,255);}
+QTimeEdit:focus {color: rgb(172,167,255);}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>hh:mm AP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QLabel
+/////////////////////////////////////////////////////////////// */
+QLabel {
+font-weight:300;
+	color: rgb(132, 127, 239);
+}
+QLabel:hover {
+	color: rgb(162, 157, 255);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>time.asleep</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_2">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QLabel
+/////////////////////////////////////////////////////////////// */
+QLabel {
+font-weight:300;
+	color: rgb(132, 127, 239);
+}
+QLabel:hover {
+	color: rgb(162, 157, 255);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>time.awake</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_3">
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QLabel
+/////////////////////////////////////////////////////////////// */
+QLabel {
+font-weight:300;
+	color: rgb(132, 127, 239);
+}
+QLabel:hover {
+	color: rgb(162, 157, 255);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>total.hrs.slept</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="diet_input_frame">
+             <layout class="QGridLayout" name="gridLayout_12">
+              <property name="leftMargin">
+               <number>4</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>4</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>0</number>
+              </property>
+              <item row="0" column="2">
+               <widget class="QSpinBox" name="calories">
+                <property name="maximumSize">
+                 <size>
+                  <width>45</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QTimeEdit
+/////////////////////////////////////////////////////////////// */
+QSpinBox {color:rgb(132,127,239);}
+QSpinBox:hover {color: rgb(152,147,255);}
+QSpinBox:focus {color: rgb(172,167,255);}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> cal.</string>
+                </property>
+                <property name="maximum">
+                 <number>2000</number>
+                </property>
+                <property name="singleStep">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="3">
+               <widget class="QFrame" name="frame_4">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {background: transparent;}
+QPushButton {
+color:rgb(90,98,200);
+font-weight:bold;
+font-size:8pt;
+border-radius: 17px;
+padding: 6px;
+min-width: 20px;
+max-width: 20px;
+min-height: 20px;
+max-height: 20px;
+border:2px solid rgb(90,98,200);
+}
+
+QPushButton:hover {
+color: rgb(62, 59, 120);
+margin-top:1px;
+margin-left:1px;
+border-color:rgb(120,128,230);
+background-color: rgb(120,128,230);
+}
+
+QPushButton:pressed {
+color: transparent;
+image: url(:/newPrefix/drankydrankChunks.png);
+margin: 0px;
+padding:0px;
+border-color:rgb(90,98,200);
+background-color: rgb(90,98,200);
+/*background-color: rgb(40,48,150);*/
+}        </string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_10">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="horizontalSpacing">
+                  <number>9</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="1">
+                  <widget class="QPushButton" name="eight_ounce_cup">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>8oz</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="7">
+                  <widget class="QPushButton" name="thirty_two_ounce_cup">
+                   <property name="text">
+                    <string>32oz</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="4">
+                  <spacer name="xx_11">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="6">
+                  <spacer name="xx_12">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="2">
+                  <spacer name="xx_10">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="3">
+                  <widget class="QPushButton" name="sixteen_ounce_cup">
+                   <property name="text">
+                    <string>16oz</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="8">
+                  <spacer name="xx_14">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="5">
+                  <widget class="QPushButton" name="twenty_four_ounce_cup">
+                   <property name="text">
+                    <string>24oz</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <spacer name="xx_15">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLineEdit" name="food_eaten">
+                <property name="minimumSize">
+                 <size>
+                  <width>155</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Input food eaten or shake drank!</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    border:none;
+font-weight:12;
+	color:rgb(144, 141, 255);
+    background: transparent;
+margin-top:4px;
+margin-bottom:4px;
+}
+QLineEdit:hover {
+border:none;
+}
+QLineEdit:focus {
+border:none;
+}
+</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>What did I eat...</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="commit_container">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+color: rgb(33,143,109);
+font-size:9pt;
+padding:4px;
+border-radius: 30px;
+min-width: 40px;
+max-width: 40px;
+min-height: 40px;
+max-height: 40px;
+border:6px solid rgb(33,143,109);
+}
+QPushButton:hover {
+color:rgb(13,123,89);
+padding:4px;
+background-color: rgb(73,183,149);
+border:6px solid rgb(73,183,149);
+}
+QPushButton:pressed {
+color: #fff;
+font-weight:bold;
+padding:4px;
+background-color:rgb(13, 123, 83);
+border:6px solid rgb(13, 123, 83);
+}</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>4</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="xx_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="shower_c">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+image:url(:/newPrefix/shower.png);
+
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/showerHover.png);
+
+}
+
+QPushButton:hover {
+
+image:url(:/newPrefix/Mac App icon 30.png);
+
+}        
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="xx_8">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="teeth_commit">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+image:url(:/newPrefix/teeth.png);
+
+}
+
+QPushButton:pressed {
+image:url(:/newPrefix/teethHover.png);
+
+}
+
+QPushButton:hover {
+
+image:url(:/newPrefix/teethPressed.png);
+
+}        
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="xx_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="yoga_commit">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+image:url(:/newPrefix/yogasd.png);
+
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/yogaHover.png);
+
+}
+
+QPushButton:hover {
+
+image:url(:/newPrefix/basics2Wh.png);
+
+}        
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="xx_13">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="hide_check_frame">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>8</number>
+              </property>
+              <item>
+               <widget class="QCheckBox" name="shower_check">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="tooth_check">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="exerc_check">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="sleep_data_page">
+       <layout class="QGridLayout" name="gridLayout_29">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="styleSheet">
+           <string notr="true">QTabWidget {
+    background-color: #121212;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;    background-color: #121212;
+}
+
+QTabBar::tab {
+    background-color: #121212;
+    border: none;
+
+}
+
+QTabBar::tab:selected {
+}
+
+
+QTabBar::tab:hover {
+	color: #fff;
+}
+
+QTabBar::tab:only-one {
+background-color: #121212;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="usesScrollButtons">
+           <bool>true</bool>
+          </property>
+          <property name="documentMode">
+           <bool>false</bool>
+          </property>
+          <widget class="QWidget" name="tab_4">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/sleepsa.png</normaloff>
+             <activeon>:/newPrefix/sleeps.png</activeon>:/newPrefix/sleepsa.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <attribute name="toolTip">
+            <string>Awake and Time Asleep</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="sleep_tableview">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_5">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/sleepsad.png</normaloff>
+             <activeon>:/newPrefix/sleeeppp.png</activeon>:/newPrefix/sleepsad.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_15">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="total_hours_slept_tableview">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_6">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/wokeUp.png</normaloff>
+             <activeon>:/newPrefix/wakeuipss.png</activeon>:/newPrefix/wokeUp.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="woke_up_like_tableview">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_7">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/slapsQWualt.png</normaloff>
+             <activeon>:/newPrefix/kjhjkhlkhkl.png</activeon>:/newPrefix/slapsQWualt.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="sleep_quality_tableview">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="diet_data_page">
+       <layout class="QGridLayout" name="gridLayout_30">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget_2">
+          <property name="styleSheet">
+           <string notr="true">QTabWidget {
+    background-color: #121212;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;    background-color: #121212;
+}
+
+QTabBar::tab {
+    background-color: #121212;
+    border: none;
+}
+
+QTabBar::tab:selected {
+    background-color: #121212;
+}
+
+QTabBar::tab:hover {
+     background-color: #121212;
+}
+
+QTabBar::tab:only-one {
+    padding: 2px;    background-color: #121212;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <widget class="QWidget" name="tab_8">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/diet.png</normaloff>
+             <activeon>:/newPrefix/dietPunched.png</activeon>:/newPrefix/diet.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_13">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="diet_table">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>50</number>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>150</number>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_9">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/liquid_guy.png</normaloff>
+             <activeon>:/newPrefix/drankPunchs.png</activeon>:/newPrefix/liquid_guy.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_18">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="hydration_table">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(62,67,144);
+}
+QTableView::item {
+padding: 1px;
+background:rgb(132,127,239);
+}
+QTableView::item:selected {
+color: #fff;
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>50</number>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>150</number>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="basics_data_page">
+       <layout class="QGridLayout" name="gridLayout_31">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="shower_tab">
+          <property name="styleSheet">
+           <string notr="true">QTabWidget {
+    background-color: transparent;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;
+    background-color: transparent;
+}
+
+QTabBar::tab {
+    background-color: transparent;
+    border: none;
+}
+
+QTabBar::tab:selected {
+    background-color: transparent;
+}
+
+QTabBar::tab:hover {
+    background-color: transparent;
+}
+
+QTabBar::tab:only-one {
+    padding: 2px;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="documentMode">
+           <bool>false</bool>
+          </property>
+          <widget class="QWidget" name="tab">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/shower.png</normaloff>
+             <activeon>:/newPrefix/Mac App icon 31.png</activeon>:/newPrefix/shower.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="shower_table">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(12,65,21);
+
+}
+QTableView::item {
+padding: 1px;
+background:rgb(33,143,109);
+}
+QTableView::item:selected {
+color:rgb(245,245,245);
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_3">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/teeth.png</normaloff>
+             <activeon>:/newPrefix/teethPressed.png</activeon>:/newPrefix/teeth.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="teethbrushed_table">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(12,65,21);
+
+}
+QTableView::item {
+padding: 1px;
+background:rgb(33,143,109);
+}
+QTableView::item:selected {
+color:rgb(245,245,245);
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_2">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/basicsGR.png</normaloff>
+             <activeon>:/newPrefix/basics2Wh.png</activeon>:/newPrefix/basicsGR.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="yoga_table">
+              <property name="styleSheet">
+               <string notr="true">
+QTableView {
+background-color: transparent;
+selection-background-color: #7e57c2;
+gridline-color:transparent;
+color:rgb(12,65,21);
+
+}
+QTableView::item {
+padding: 1px;
+background:rgb(33,143,109);
+}
+QTableView::item:selected {
+color:rgb(245,245,245);
+background:rgb(23, 23, 23);
+}
+    </string>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="mmdm_measures">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="1">
+         <widget class="QFrame" name="mm_container">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>120</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>0</number>
+           </property>
+           <item row="1" column="2">
+            <widget class="QSlider" name="depression_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Depression&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(93,112,219);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(93,112,219);
+}
+/* ////////////////////////////////////////////////////////////////////////
+depression slider
+//////////////////////////////////////////////////////////////////////// */
+QSlider::handle:vertical {background:rgb(87,111,215);}
+QSlider::handle:vertical:hover {background:rgb(117,141,245);}
+QSlider::handle:vertical:pressed {background:rgb(67,91,195);}
+QSlider::add-page:vertical {background:rgb(87,111,215);}
+QSlider::groove:vertical:hover{background:rgba(87,111,215,0.35);}
+
+QSlider::groove:vertical {background:rgba(87,111,215,0.15);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QSlider" name="mood_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mood&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(104,174,102);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(104,174,102);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSlider Colors
+/////////////////////////////////////////////////////////////// */
+
+QSlider::handle:vertical {background:rgb(96,175,107);}
+QSlider::handle:vertical:hover {background:rgb(126,205,137);}
+QSlider::handle:vertical:pressed {background:rgb(76,155,87);}
+QSlider::add-page:vertical {background:rgb(96,175,107);}
+QSlider::groove:vertical:hover {background:rgba(96,175,107,0.35);}
+QSlider::groove:vertical {background:rgba(96,175,107,0.15);}
+</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QSpinBox" name="mixed_risk">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mixed Risk&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(220,99,108);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(220,99,108);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {color:rgb(222,100,109);}
+QSpinBox:hover {color: rgb(255,160,169);}
+QSpinBox:focus {color: rgb(252,130,139);}
+</string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QSpinBox" name="depression">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Depression&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(93,112,219);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(93,112,219);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {color:rgb(87,111,215);background:transparent;}
+QSpinBox:hover {color: rgb(147,171,255);}
+QSpinBox:focus {color: rgb(117,141,245);}
+</string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QSpinBox" name="mania">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mania&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(184,153,222);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(184,153,222);
+}
+
+
+
+    /* ///////////////////////////////////////////////////////////////
+    QSpinBox
+    /////////////////////////////////////////////////////////////// */
+    QSpinBox {color:rgb(220,180,74);}
+    QSpinBox:hover {color: rgb(255,240,134);}
+    QSpinBox:focus {color: rgb(250,210,104);}
+    </string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QSlider" name="mixed_risk_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mixed Risk&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(220,99,108);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(220,99,108);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSlider Colors
+/////////////////////////////////////////////////////////////// */
+
+QSlider::handle:vertical {background:rgb(222,100,109);}
+QSlider::handle:vertical:hover {background:rgb(252,130,139);}
+QSlider::handle:vertical:pressed {background:rgb(202,80,89);}
+QSlider::add-page:vertical{background:rgb(222,100,109);}
+QSlider::groove:vertical:hover {background:rgba(222,100,109,0.35);}
+QSlider::groove:vertical {background:rgba(222,100,109,0.15);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSlider" name="mania_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mania&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(249,195,94);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(249,195,94);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSlider Colors
+/////////////////////////////////////////////////////////////// */
+
+
+    /* ///////////////////////////////////////////////////////////////
+    QSlider Colors
+    /////////////////////////////////////////////////////////////// */
+    
+QSlider::handle:vertical {background:rgb(220,180,74);}
+QSlider::handle:vertical:hover {background:rgb(250,210,104);}
+QSlider::handle:vertical:pressed {background:rgb(200,160,54);}
+QSlider::add-page:vertical {background:rgb(220,180,74);}
+QSlider::groove:vertical:hover {background:rgba(220,180,74,0.35);}
+QSlider::groove:vertical {background:rgba(220,180,74,0.15);}
+    </string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QSpinBox" name="mood">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mood&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(104,174,102);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(104,174,102);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {background:transparent;color:rgb(96,175,107);}
+QSpinBox:hover {color: rgb(156,235,167);}
+QSpinBox:focus {color: rgb(126,205,137);}
+</string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="wefe_measurements">
+       <layout class="QGridLayout" name="gridLayout_11">
+        <item row="0" column="0">
+         <widget class="QFrame" name="wefe_container">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>120</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_21">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>0</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>6</number>
+           </property>
+           <item row="3" column="3">
+            <widget class="QSpinBox" name="energy_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Energy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(104,174,102);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(104,174,102);
+}
+
+/* ///////////////////////////////////////////////////////////////
+QSpinBox
+/////////////////////////////////////////////////////////////// */
+QSpinBox {background:transparent;color:rgb(96,175,107);}
+QSpinBox:hover {color: rgb(156,235,167);}
+QSpinBox:focus {color: rgb(126,205,137);}
+</string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QSpinBox" name="focus_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;focus&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(100,172,173);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(100,172,173);
+}
+QSpinBox {background:transparent;color:rgb(89,172,172);}
+QSpinBox:hover {color: rgb(149,232,232);}
+QSpinBox:focus {color: rgb(119,202,202);}
+</string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
+            <widget class="QSlider" name="focus_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;focus&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(100,172,173);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(100,172,173);
+}
+/* ////////////////////////////////////////////////////////////////////////
+focus slider
+//////////////////////////////////////////////////////////////////////// */
+QSlider::handle:vertical {background:rgb(89,172,172);}
+QSlider::groove:vertical{background:rgba(89,172,172, 0.15);}
+QSlider::handle:vertical:hover {background:rgb(119,202,202);}
+QSlider::handle:vertical:pressed {background:rgb(69,152,152);}
+QSlider::add-page:vertical{background:rgb(89,172,172);}
+QSlider::groove:vertical:hover {background:rgba(89,172,172,0.35);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QSpinBox" name="excite_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Excitement&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+    /* ///////////////////////////////////////////////////////////////
+    QSpinBox
+    /////////////////////////////////////////////////////////////// */
+    QSpinBox {color:rgb(122,177,222);}
+    QSpinBox:hover {color: rgb(182,237,255);}
+    QSpinBox:focus {color: rgb(152,207,252);}
+    </string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3" rowspan="2">
+            <widget class="QSlider" name="energy_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Energy&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(104,174,102);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(104,174,102);
+}
+
+/* ////////////////////////////////////////////////////////////////////////
+energy slider
+//////////////////////////////////////////////////////////////////////// */
+QSlider::handle:vertical {background:rgb(96,174,106);}
+QSlider::groove:vertical {background:rgba(96,174,106, 0.15);}
+QSlider::handle:vertical:hover {background:rgb(126,204,136);}
+QSlider::handle:vertical:pressed {background:rgb(76,154,86);}
+QSlider::add-page:vertical {background:rgb(96,174,106);}
+QSlider::groove:vertical:hover {background:rgba(96,174,106,0.35);}
+</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="2">
+            <widget class="QSlider" name="excite_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Excitement&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(100,172,173);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(100,172,173);
+}
+
+    /* ///////////////////////////////////////////////////////////////
+    QSlider Colors
+    /////////////////////////////////////////////////////////////// */
+    
+    QSlider::handle:vertical {background:rgb(122,177,222);}
+    QSlider::groove:vertical{background:rgba(122,177,222, 0.15);}
+    QSlider::handle:vertical:hover {background:rgb(152,207,252);}
+    QSlider::handle:vertical:pressed {background:rgb(102,157,202);}
+    QSlider::add-page:vertical{background:rgb(122,177,222);}
+    QSlider::groove:vertical:hover {background:rgba(122,177,222,0.35);}
+    </string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" rowspan="2">
+            <widget class="QSlider" name="wellbeing_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wellbeing&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(184,153,222);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(184,153,222);
+}
+QSlider::groove:vertical {background:rgba(186,153,219, 0.15);}
+QSlider::handle:vertical {background:rgb(186,153,219);}
+QSlider::handle:vertical:hover {background:rgb(216,183,249);}
+QSlider::handle:vertical:pressed {background:rgb(166,133,199);}
+QSlider::add-page:vertical{background:rgb(186,153,219);}
+QSlider::groove:vertical:hover {background:rgba(186,153,219,0.35);} 
+</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QSpinBox" name="wellbeing_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wellbeing&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(184,153,222);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(184,153,222);
+}
+
+    /* ///////////////////////////////////////////////////////////////
+    QSpinBox
+    /////////////////////////////////////////////////////////////// */
+    QSpinBox {color:rgb(186,153,219);}
+    QSpinBox:hover {color: rgb(246,213,255);}
+    QSpinBox:focus {color: rgb(216,183,249);}
+    </string>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="cspr_measurements">
+       <layout class="QGridLayout" name="gridLayout_19">
+        <item row="0" column="0">
+         <widget class="QFrame" name="cspr_container">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>120</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>0</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>6</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QSpinBox" name="calm_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calm&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(125,123,202);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(125,123,202);
+}
+#calm_spinbox{color:rgb(123,123,199);}
+#calm_spinbox:hover {color: rgb(183,183,255);}
+#calm_spinbox:focus {color: rgb(153,153,229);}
+</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="stress_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stress&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(249,195,94);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(249,195,94);
+}
+/* ////////////////////////////////////////////////////////////////////////
+Stress
+//////////////////////////////////////////////////////////////////////// */
+#stress_spinbox {background:transparent;color:rgb(254,195,105);}
+#stress_spinbox:hover {color: rgb(255,255,165);}
+#stress_spinbox:focus {color: rgb(255,225,135); }</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="accelerated">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QSlider" name="pain_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pain&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(223,134,93);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(223,134,93);
+}
+/* Pain Slider */
+#pain_slider::handle:vertical {background:rgb(229,133,98);}
+#pain_slider::handle:vertical:hover {background:rgb(255,163,128);}
+#pain_slider::handle:vertical:pressed {background:rgb(209,113,78);}
+#pain_slider::add-page:vertical {background:rgb(229,133,98);}
+#pain_slider::groove:vertical:hover {background:rgba(229,133,98,0.35);}
+#pain_slider::groove:vertical {background:rgba(229,133,98,0.15);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSlider" name="stress_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stress&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="whatsThis">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(249,195,94);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(249,195,94);
+}
+/* ////////////////////////////////////////////////////////////////////////
+stress slider
+//////////////////////////////////////////////////////////////////////// */
+#stress_slider::handle:vertical {background:rgb(254,195,105);}
+#stress_slider::handle:vertical:hover {background:rgb(255,225,135);}
+#stress_slider::handle:vertical:pressed {background:rgb(234,175,85);}
+#stress_slider::add-page:vertical {background:rgb(254,195,105);}
+#stress_slider::groove:vertical:hover {background:rgba(254,195,105,0.35);}
+#stress_slider::groove:vertical {background:rgba(254,195,105,0.15);}
+</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QSpinBox" name="pain_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pain&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(223,134,93);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(223,134,93);
+}
+
+#pain_spinbox {color:rgb(229,133,98);}
+#pain_spinbox:hover {color: rgb(255,193,158);}
+#pain_spinbox:focus {color: rgb(255,163,128);}
+</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QSpinBox" name="rage_spinbox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Rage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(220,99,108);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(220,99,108);
+}
+/* ////////////////////////////////////////////////////////////////////////
+rage spinbox
+ //////////////////////////////////////////////////////////////////////// */
+#rage_spinbox {background:transparent;color:rgb(229,100,111);}
+#rage_spinbox:hover {color: rgb(255,160,171);}
+#rage_spinbox:focus {color: rgb(255,130,141);}</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QSlider" name="rage_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Rage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(220,99,108);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(220,99,108);
+}
+/* ////////////////////////////////////////////////////////////////////////
+rage slider
+//////////////////////////////////////////////////////////////////////// */
+#rage_slider::handle:vertical {background:rgb(229,100,111);}
+#rage_slider::handle:vertical:hover {background:rgb(255,130,141);}
+#rage_slider::handle:vertical:pressed {background:rgb(209,80,91);}
+#rage_slider::add-page:vertical {background:rgb(229,100,111);}
+#rage_slider::groove:vertical:hover {background:rgba(229,100,111,0.35);}
+#rage_slider::groove:vertical {background:rgba(229,100,111,0.15);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QSlider" name="calm_slider">
+             <property name="minimumSize">
+              <size>
+               <width>28</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calm&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(125,123,202);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(125,123,202);
+}
+/* ////////////////////////////////////////////////////////////////////////
+calm slider
+//////////////////////////////////////////////////////////////////////// */
+#calm_slider::handle:vertical {background:rgb(123,123,199);}
+#calm_slider::handle:vertical:hover {background:rgb(153,153,229);}
+#calm_slider::handle:vertical:pressed {background:rgb(103,103,179);}
+#calm_slider::add-page:vertical {background:rgb(123,123,199);}
+#calm_slider::groove:vertical:hover {background:rgba(123,123,199,0.35);}
+#calm_slider::groove:vertical {background:rgba(123,123,199,0.15);}</string>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="mmwefecspr_dataviews">
+       <layout class="QGridLayout" name="gridLayout_32">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="mmwefecspr_dataviews_2">
+          <property name="styleSheet">
+           <string notr="true">QTabWidget {
+background-color: #fff;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;    
+	background-color: #fff;
+}
+
+QTabBar::tab {
+margin-left:9px;
+padding-top:2px;
+padding-bottom:2px;
+background-color: transparent;
+    border: none;
+}
+
+QTabBar::tab:selected {
+background-color: transparent;
+font-weight:bold;
+font-size:8pt;
+}
+
+QTabBar::tab:hover {
+	border-radius: 4px;
+	
+}
+
+QTabBar::tab:only-one {
+background-color: transparent;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_10">
+           <attribute name="title">
+            <string>MM</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_24">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_6">
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QTableView" name="mental_mental_table">
+                 <property name="styleSheet">
+                  <string notr="true">
+ QTableView {
+     background-color: transparent;
+     selection-background-color: #7e57c2;
+     gridline-color:transparent;
+     color:rgb(31,111,42);
+ }
+ QTableView::item {
+     padding: 1px;
+     background:rgb(96,176,107);
+ }
+ QTableView::item:selected {
+     color: #fff;
+     background:rgb(23, 23, 23);
+ }
+ </string>
+                 </property>
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>true</bool>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_11">
+           <attribute name="title">
+            <string>WEFE</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_25">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_7">
+              <layout class="QGridLayout" name="gridLayout_26">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QTableView" name="wefe_tableview">
+                 <property name="styleSheet">
+                  <string notr="true">
+ QTableView {
+     background-color: transparent;
+     selection-background-color: #7e57c2;
+     gridline-color:transparent;
+     color:rgb(58,111,157);
+ }
+ QTableView::item {
+     padding: 1px;
+     background:rgb(123,176,222);
+ }
+ QTableView::item:selected {
+     color: #fff;
+     background:rgb(23, 23, 23);
+ }
+ </string>
+                 </property>
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>true</bool>
+                 </attribute>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QSpinBox" name="summing_box">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Summing Box&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QToolTip
+/////////////////////////////////////////////////////////////// */
+QToolTip {
+    background: rgba(23,23,23, 150);
+    border: 1px solid rgb(220,99,108);
+    border-radius: 5px; 
+    padding:4px; 
+    text-align: left;
+    color: rgb(220,99,108);
+}
+/* ////////////////////////////////////////////////////////////////////////
+rage spinbox
+ //////////////////////////////////////////////////////////////////////// */
+QSpinBox {background:transparent;color:rgb(229,100,111);}
+QSpinBox:hover {color: rgb(255,160,171);}
+QSpinBox:focus {color: rgb(255,130,141);}</string>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="buttonSymbols">
+                  <enum>QAbstractSpinBox::NoButtons</enum>
+                 </property>
+                 <property name="maximum">
+                  <number>40</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_12">
+           <attribute name="title">
+            <string>CSPR</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_27">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_8">
+              <layout class="QGridLayout" name="gridLayout_28">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableView" name="cspr_tableview">
+                 <property name="styleSheet">
+                  <string notr="true">
+ QTableView {
+     background-color: transparent;
+     selection-background-color: #7e57c2;
+     gridline-color:transparent;
+     color:rgb(164,68,33);
+ }
+ QTableView::item {
+     padding: 1px;
+     background:rgb(229,133,98);
+ }
+ QTableView::item:selected {
+     color: #fff;
+     background:rgb(23, 23, 23);
+ }
+ </string>
+                 </property>
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>true</bool>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="lilys_mod">
+       <layout class="QGridLayout" name="gridLayout_40">
+        <item row="0" column="0">
+         <widget class="QFrame" name="lilyStack">
+          <layout class="QGridLayout" name="gridLayout_22">
+           <property name="leftMargin">
+            <number>8</number>
+           </property>
+           <property name="topMargin">
+            <number>8</number>
+           </property>
+           <property name="rightMargin">
+            <number>8</number>
+           </property>
+           <property name="bottomMargin">
+            <number>8</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QFrame" name="button_catcher_frame">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="xx_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="lily_walk_btn">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press opt+cmd+w to commit walk data!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+QPushButton {
+border:none;
+image: url(:/newPrefix/lily_walk_norm.png);
+max-width:30px;
+min-width:30px;
+max-height:30px;
+min-height:30px;
+}
+
+QPushButton:hover {
+image: url(:/newPrefix/lily_walk_one_hover.png);
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/lily_walk_checked_one.png);
+}
+
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="xx_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="lily_ate_check">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Press to &lt;span style=&quot; font-style:italic;&quot;&gt;commit &lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Diet&lt;/span&gt; Data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+QPushButton {
+border:none;
+image: url(:/newPrefix/lilyasdfas.png);
+max-width:30px;
+min-width:30px;
+max-height:30px;
+min-height:30px;
+}
+
+QPushButton:hover {
+image: url(:/newPrefix/lilydiethover2.png);
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/lilydietchecked.png);
+}
+
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="xx">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="walk_mood_rate_frame">
+             <layout class="QGridLayout" name="gridLayout_33">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>6</number>
+              </property>
+              <item row="1" column="2">
+               <widget class="QSpinBox" name="lily_behavior">
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QSpinBox" name="lily_gait">
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="na_45">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+background:transparent;
+font-weight:bold;
+color:rgb(144,114,144);
+}
+QLabel:hover {
+color:rgb(174,144,174);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Gait</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="na_42">
+                <property name="styleSheet">
+                 <string notr="true">
+
+QLabel {
+font-weight:bold;
+color:rgb(205,178,214);
+}
+QLabel:hover {
+color: rgb(250,223,255);
+}
+    </string>
+                </property>
+                <property name="text">
+                 <string>Behavior</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QSlider" name="lily_behavior_slider">
+                <property name="toolTip">
+                 <string>how well my lil lady 
+behaved, did she pull tons 
+or just a little?</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QSlider::handle:horizontal {
+    background:rgb(205,178,214);
+}
+QSlider::handle:horizontal:hover {
+    background:rgb(235,208,244);
+}
+QSlider::handle:horizontal:pressed {
+    background:rgb(185,158,194);
+}
+QSlider::groove:horizontal:hover {
+    background:rgba(205,178,214,45);
+}</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QSlider" name="lily_gait_slider">
+                <property name="toolTip">
+                 <string>How well my lady
+ walked the wilds!</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QSlider Colors
+/////////////////////////////////////////////////////////////// */
+
+QSlider::handle:horizontal {background:rgb(144,114,144);}
+QSlider::handle:horizontal:hover {background:rgb(174,144,174);}
+QSlider::handle:horizontal:pressed {background:rgb(124,94,124);}
+QSlider::groove:horizontal:hover {background:rgba(144,114,144,0.25);}
+</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QFrame" name="lily_diet_mood_input_container">
+             <layout class="QGridLayout" name="gridLayout_23">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item row="1" column="2">
+               <widget class="QFrame" name="lily_diet_frame">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_71">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                </layout>
+               </widget>
+              </item>
+              <item row="9" column="1">
+               <widget class="QSpinBox" name="lily_mood">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>35</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Little wiggly's mood for the day!</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="minimum">
+                 <number>-10</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="1">
+               <widget class="QSpinBox" name="lily_energy">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>35</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Her overall energy, mostly to notice if she is acting sick</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="minimum">
+                 <number>-10</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="2" colspan="2">
+               <widget class="QSlider" name="lily_mood_activity_slider">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="cursor">
+                 <cursorShape>ArrowCursor</cursorShape>
+                </property>
+                <property name="toolTip">
+                 <string>Little Lilys activity for the day, that is, her gait, her joy, her spunk :D</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="2" colspan="2">
+               <widget class="QSlider" name="lily_energy_slider">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>Her overall energy, mostly to notice if she is acting sick</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="2" colspan="2">
+               <widget class="QSlider" name="lily_mood_slider">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>Little wiggly's mood for the day!</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="1">
+               <widget class="QSpinBox" name="lily_activity">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>35</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Little Lilys activity for the day, that is, her gait, her joy, her spunk :D</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="minimum">
+                 <number>-10</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="2" colspan="2">
+               <widget class="QSlider" name="lily_time_in_room_slider">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press cntrl+T to commit Time in Room Data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::NoTicks</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="0">
+               <widget class="QLabel" name="na_44">
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+font-weight:bold;
+background:transparent;
+color:rgb(100,70,100);
+}
+QLabel:hover {
+color: rgb(150,120,150);
+}
+    </string>
+                </property>
+                <property name="text">
+                 <string>Lily's Energy</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QPushButton" name="lily_walk_note_commit_btn">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press opt+cmd+w to commit walk data!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border:none;
+image: url(:/newPrefix/lily_walk_norm.png);
+max-width:15px;
+min-width:15px;
+max-height:15px;
+min-height:15px;
+}
+
+QPushButton:hover {
+image: url(:/newPrefix/lily_walk_one_hover.png);
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/lily_walk_checked_one.png);
+}
+
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="0">
+               <widget class="QLabel" name="na_43">
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+font-weight:bold;
+background:transparent;
+color:rgb(130,100,130);
+}
+QLabel:hover {
+color: rgb(180,160,180);
+}
+    </string>
+                </property>
+                <property name="text">
+                 <string>Lily's Activity</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="na_41">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press cntrl+T to commit Time in Room Data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+
+QLabel {
+font-weight:bold;
+color:rgb(205,178,214);
+}
+QLabel:hover {
+color: rgb(250,223,255);
+}
+    </string>
+                </property>
+                <property name="text">
+                 <string>In Room</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLabel" name="na_46">
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+font-weight:bold;
+background:transparent;
+color:rgb(160,130,160);
+}
+QLabel:hover {
+color: rgb(210,180,210);
+}
+ </string>
+                </property>
+                <property name="text">
+                 <string>Lily's Mood</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QSpinBox" name="lily_time_in_room">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>35</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press cntrl+T to commit Time in Room Data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="minimum">
+                 <number>-100</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="3">
+               <widget class="QLineEdit" name="lily_walk_note">
+                <property name="styleSheet">
+                 <string notr="true">
+/* //////////////////////////////////////////////////////////////////////////////////////////
+QComboBox Style Default
+////////////////////////////////////////////////////////////////////////////////////////// */
+QLineEdit {
+    border:none;
+	color:rgb(160,130,160);
+}
+
+QLineEdit:hover {
+    color: rgb(200,170,200);
+}
+
+QLineEdit:focus {
+    color: rgb(180,150,180);
+}
+    </string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>press the paw to commit note ➞</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QTextEdit" name="lily_notes">
+             <property name="styleSheet">
+              <string notr="true">
+/* //////////////////////////////////////////////////////////////////////////////////////////
+QComboBox Style Default
+////////////////////////////////////////////////////////////////////////////////////////// */
+QTextEdit {
+    border:none;
+	color:rgb(160,130,160);
+}
+
+QTextEdit:hover {
+    color: rgb(200,170,200);
+}
+
+QTextEdit:focus {
+    color: rgb(180,150,180);
+}
+    </string>
+             </property>
+             <property name="tabStopDistance">
+              <double>20.000000000000000</double>
+             </property>
+             <property name="placeholderText">
+              <string>lily's notes and such, use the button below to commit to the dbs! ❤ </string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="lily_note_commit_btn">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;press opt+cmd+w to commit walk data!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+border:none;
+image: url(:/newPrefix/lily_walk_norm.png);
+max-width:15px;
+min-width:15px;
+max-height:15px;
+min-height:15px;
+}
+
+QPushButton:hover {
+image: url(:/newPrefix/lily_walk_one_hover.png);
+}
+
+QPushButton:pressed {
+image: url(:/newPrefix/lily_walk_checked_one.png);
+}
+
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>22</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="lilys_dataviews">
+       <layout class="QGridLayout" name="gridLayout_45">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="lily_data_stack">
+          <property name="styleSheet">
+           <string notr="true">QTabWidget {
+    background-color: #121212;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;    background-color: #121212;
+}
+
+QTabBar::tab {
+    background-color: #121212;
+    border: none;
+}
+
+QTabBar::tab:selected {
+    background-color: #121212;
+}
+
+QTabBar::tab:hover {
+     background-color: #121212;
+}
+
+QTabBar::tab:only-one {
+ background-color: #121212;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <widget class="QWidget" name="lily_data_stackPage1">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/lily_walk_norm.png</normaloff>
+             <activeon>:/newPrefix/onePaw.png</activeon>:/newPrefix/lily_walk_norm.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_42">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="1" column="0" colspan="2">
+             <widget class="QFrame" name="frame_35">
+              <layout class="QGridLayout" name="gridLayout_43">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QFrame" name="frame_36">
+                 <layout class="QGridLayout" name="gridLayout_34">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="1" column="0">
+                   <widget class="QTableView" name="lily_walk_table">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="showGrid">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sortingEnabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="cornerButtonEnabled">
+                     <bool>false</bool>
+                    </property>
+                    <attribute name="horizontalHeaderCascadingSectionResizes">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="horizontalHeaderMinimumSectionSize">
+                     <number>15</number>
+                    </attribute>
+                    <attribute name="horizontalHeaderDefaultSectionSize">
+                     <number>75</number>
+                    </attribute>
+                    <attribute name="horizontalHeaderStretchLastSection">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="verticalHeaderCascadingSectionResizes">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                     <bool>true</bool>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QTableView" name="lily_walk_note_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableView { 
+    background-color: transparent;
+    alternate-background-color: rgb(100, 157, 220);
+    selection-background-color: #7e57c2;
+    gridline-color:transparent;
+    color:rgb(245,245,245);
+}
+QTableView::item {
+    padding: 1px;
+    background:rgb(180, 149, 210);
+}
+QTableView::item:selected {
+    color: #fff;
+    background:rgb(23, 23, 23);
+}</string>
+                    </property>
+                    <property name="showGrid">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sortingEnabled">
+                     <bool>true</bool>
+                    </property>
+                    <attribute name="horizontalHeaderCascadingSectionResizes">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="horizontalHeaderMinimumSectionSize">
+                     <number>15</number>
+                    </attribute>
+                    <attribute name="horizontalHeaderDefaultSectionSize">
+                     <number>75</number>
+                    </attribute>
+                    <attribute name="horizontalHeaderStretchLastSection">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="verticalHeaderCascadingSectionResizes">
+                     <bool>true</bool>
+                    </attribute>
+                    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                     <bool>true</bool>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="Line" name="line_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="lily_note_table_contain">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/lilynotes1.png</normaloff>
+             <activeon>:/newPrefix/lilynoteChecked.png</activeon>:/newPrefix/lilynotes1.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_35">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="lily_notes_table">
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>50</number>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>150</number>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="lily_data_stackPage2">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/lilyasdfas.png</normaloff>
+             <activeon>:/newPrefix/Mac App icon 46.png</activeon>:/newPrefix/lilyasdfas.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_55">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0" colspan="2">
+             <widget class="QFrame" name="frame_38">
+              <layout class="QGridLayout" name="gridLayout_36">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableView" name="lily_diet_table">
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="horizontalHeaderCascadingSectionResizes">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="horizontalHeaderMinimumSectionSize">
+                  <number>50</number>
+                 </attribute>
+                 <attribute name="horizontalHeaderDefaultSectionSize">
+                  <number>150</number>
+                 </attribute>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="verticalHeaderCascadingSectionResizes">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                  <bool>true</bool>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="lily_data_stackPage3">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/lily_mood_norm.png</normaloff>
+             <activeon>:/newPrefix/Mac App icon 50.png</activeon>:/newPrefix/lily_mood_norm.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_57">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0" colspan="2">
+             <widget class="QFrame" name="mood_container">
+              <layout class="QGridLayout" name="gridLayout_37">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QTableView" name="lily_mood_table">
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="sortingEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="horizontalHeaderCascadingSectionResizes">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="horizontalHeaderMinimumSectionSize">
+                  <number>50</number>
+                 </attribute>
+                 <attribute name="horizontalHeaderDefaultSectionSize">
+                  <number>150</number>
+                 </attribute>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="verticalHeaderCascadingSectionResizes">
+                  <bool>true</bool>
+                 </attribute>
+                 <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                  <bool>true</bool>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="lily_data_stackPage4">
+           <attribute name="icon">
+            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+             <normaloff>:/newPrefix/asdsdf.png</normaloff>
+             <activeon>:/newPrefix/1 1.png</activeon>:/newPrefix/asdsdf.png</iconset>
+           </attribute>
+           <attribute name="title">
+            <string/>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_38">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableView" name="time_in_room_table">
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>50</number>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>150</number>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="datetimes">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QFrame" name="wefe_frame">
+             <layout class="QGridLayout" name="gridLayout_41">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="1" column="0">
+               <widget class="QTimeEdit" name="wefe_time"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QDateEdit" name="wefe_date"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QDateEdit" name="lily_date">
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy/MM/dd</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="cspr_date"/>
+              </item>
+              <item>
+               <widget class="QTimeEdit" name="cspr_time"/>
+              </item>
+              <item>
+               <widget class="QTimeEdit" name="lily_time">
+                <property name="styleSheet">
+                 <string notr="true">
+QTimeEdit {
+color:rgb(205,178,214);
+font-size:10pt;
+}
+QTimeEdit:hover {
+color: rgb(225,198,234);
+}
+QTimeEdit:focus {
+color: rgb(245,218,254);
+}
+    </string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>hh:mm:ss</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="mm_frame">
+             <layout class="QGridLayout" name="gridLayout_44">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="2" column="0">
+               <widget class="QTimeEdit" name="mental_mental_time"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QDateEdit" name="mental_mental_date"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QTimeEdit" name="lily_notes_time"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QDateEdit" name="basics_date">
+          <property name="minimumDateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2023</year>
+            <month>9</month>
+            <day>14</day>
+           </datetime>
+          </property>
+          <property name="displayFormat">
+           <string>yyyy/MM/dd</string>
+          </property>
+          <property name="date">
+           <date>
+            <year>2023</year>
+            <month>9</month>
+            <day>14</day>
+           </date>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QDateEdit" name="sleep_date">
+          <property name="toolTip">
+           <string>BASICS DATE</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+/* ///////////////////////////////////////////////////////////////
+QDateEdit
+/////////////////////////////////////////////////////////////// */
+QDateEdit {color:rgb(132,127,239);}
+QDateEdit:hover {color: rgb(152,147,255);}
+QDateEdit:focus {color: rgb(172,167,255);}
+</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="displayFormat">
+           <string>yyyy/MM/dd</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QTimeEdit" name="sleep_time">
+          <property name="displayFormat">
+           <string>hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QDateEdit" name="diet_date">
+          <property name="displayFormat">
+           <string>yyyy/MM/dd</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QTimeEdit" name="diet_time">
+          <property name="displayFormat">
+           <string>hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QTimeEdit" name="basics_time">
+          <property name="displayFormat">
+           <string>hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>291</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTracker">
+    <property name="title">
+     <string>Tracker</string>
+    </property>
+    <addaction name="actionMaximize"/>
+    <addaction name="actionMinimize"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuViews">
+    <property name="title">
+     <string>Views</string>
+    </property>
+    <addaction name="actionBDSInput"/>
+    <addaction name="actionSleepDataView"/>
+    <addaction name="actionDietDataView"/>
+    <addaction name="actionBasicsDataView"/>
+    <addaction name="actionMMDMView"/>
+    <addaction name="actionWEFEView"/>
+    <addaction name="actionCSPRView"/>
+    <addaction name="actionExamDataViews"/>
+    <addaction name="actionLilysPage"/>
+    <addaction name="actionLilyDataView"/>
+   </widget>
+   <widget class="QMenu" name="menuData">
+    <property name="title">
+     <string>Data</string>
+    </property>
+    <widget class="QMenu" name="menuCommits">
+     <property name="title">
+      <string>Commits</string>
+     </property>
+     <addaction name="actionCommitSleep"/>
+     <addaction name="actionCommitDiet"/>
+     <addaction name="actionCommitLilyMood"/>
+     <addaction name="actionCommitWEFE"/>
+     <addaction name="actionCommitMMDM"/>
+     <addaction name="actionCommitCSPR"/>
+     <addaction name="actionCommitLilysTimeInRoom"/>
+    </widget>
+    <addaction name="actionTotalHours"/>
+    <addaction name="actionDelete"/>
+    <addaction name="menuCommits"/>
+   </widget>
+   <addaction name="menuTracker"/>
+   <addaction name="menuViews"/>
+   <addaction name="menuData"/>
+  </widget>
+  <action name="actionMaximize">
+   <property name="text">
+    <string>Maximize</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+M</string>
+   </property>
+  </action>
+  <action name="actionMinimize">
+   <property name="text">
+    <string>Minimize</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionBDSInput">
+   <property name="text">
+    <string>BDS Input</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionSleepDataView">
+   <property name="text">
+    <string>Sleep DataView</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+1</string>
+   </property>
+  </action>
+  <action name="actionDietDataView">
+   <property name="text">
+    <string>Diet DataView</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+2</string>
+   </property>
+  </action>
+  <action name="actionBasicsDataView">
+   <property name="text">
+    <string>Basics DataView</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+3</string>
+   </property>
+  </action>
+  <action name="actionMMDMView">
+   <property name="text">
+    <string>MMDM Exam</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionWEFEView">
+   <property name="text">
+    <string>WEFE Exam</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionCSPRView">
+   <property name="text">
+    <string>CSPR Exam</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionExamDataViews">
+   <property name="text">
+    <string>Exam DataViews</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+4</string>
+   </property>
+  </action>
+  <action name="actionLilysPage">
+   <property name="text">
+    <string>Lily's Page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionLilyDataView">
+   <property name="text">
+    <string>Lily's DataView</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+5</string>
+   </property>
+  </action>
+  <action name="actionTotalHours">
+   <property name="text">
+    <string>Total Hours Slept</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+S</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="actionCommitSleep">
+   <property name="text">
+    <string>Commit Sleep</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionCommitDiet">
+   <property name="text">
+    <string>Commit Diet</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
+   </property>
+  </action>
+  <action name="actionCommitLilyMood">
+   <property name="text">
+    <string>Commit Lily Mood</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+M</string>
+   </property>
+  </action>
+  <action name="actionCommitWEFE">
+   <property name="text">
+    <string>Commit WEFE</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+W</string>
+   </property>
+  </action>
+  <action name="actionCommitMMDM">
+   <property name="text">
+    <string>Commit MMDM</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+E</string>
+   </property>
+  </action>
+  <action name="actionCommitCSPR">
+   <property name="text">
+    <string>Commit CSPR</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+R</string>
+   </property>
+  </action>
+  <action name="actionCommitLilysTimeInRoom">
+   <property name="text">
+    <string>Commit Lily's Time In Room</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+T</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../../QtResourcesFeb20/spunkster.qrc"/>
+ </resources>
+ <connections/>
+</ui>
