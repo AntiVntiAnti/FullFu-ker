@@ -50,12 +50,7 @@ from utility.app_operations.show_hide import (
 
 from utility.widgets_set_widgets.buttons_set_time import (
     btn_times)
-from database.add_data.teethbrushing import (
-    add_teethbrush_data)
-from database.add_data.exercise import (
-    add_exercise_data)
-from database.add_data.shower import (
-    add_shower_data)
+
 
 ##############################################################################
 # DATABASE Magicks w/ Wizardry & Necromancy
@@ -72,22 +67,25 @@ from database.database_utility.delete_records import (
 from database.database_utility.model_setup import (
     create_and_set_model)
 # Add personal diet
-from database.add_data.diet import add_diet_data
-from database.add_data.hydration import add_hydration_data
-# Basics add sleep and basics
-from database.add_data.woke_up_like_data import add_woke_up_like_data
-from database.add_data.total_hours_slept import add_total_hours_slept_data
-from database.add_data.sleep_data import add_sleep_data
-from database.add_data.sleep_quality_data import add_sleep_quality_data
-from database.add_data.wefe_add_data import add_wefe_data
-from database.add_data.mental_mental import add_mentalsolo_data
-from database.add_data.cspr import add_cspr_data
-from database.add_data.time_in_room import add_time_in_room_data
-from database.add_data.mood import add_lily_mood_data
-from database.add_data.lily_diet import add_lily_diet_data
-from database.add_data.walks import add_lily_walk_data
-from database.add_data.lily_notes import add_lily_note_data
-from database.add_data.walk_notes import add_lily_walk_notes
+from database.add_data.basics_mod.basics_shower import add_shower_data
+from database.add_data.basics_mod.basics_exercise import add_exercise_data
+from database.add_data.basics_mod.basics_teethbrushing import add_teethbrush_data
+from database.add_data.diet_mod.diet_hydration import add_hydration_data
+from database.add_data.diet_mod.diet import add_diet_data
+from database.add_data.lily_mod.lily_walk_notes import add_lily_walk_notes
+from database.add_data.lily_mod.lily_diet import add_lily_diet_data
+from database.add_data.lily_mod.lily_walks import add_lily_walk_data
+from database.add_data.lily_mod.lily_time_in_room import add_time_in_room_data
+from database.add_data.lily_mod.lily_mood import add_lily_mood_data
+from database.add_data.lily_mod.lily_notes import add_lily_note_data
+from database.add_data.mind_mod.wefe import add_wefe_data
+from database.add_data.mind_mod.cspr import add_cspr_data
+from database.add_data.mind_mod.mental_mental import add_mentalsolo_data
+from database.add_data.sleep_mod.sleep_quality import add_sleep_quality_data
+from database.add_data.sleep_mod.sleep_total_hours_slept import add_total_hours_slept_data
+from database.add_data.sleep_mod.sleep_woke_up_like import add_woke_up_like_data
+from database.add_data.sleep_mod.sleep import add_sleep_data
+
 
 
 class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
@@ -190,6 +188,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.init_hydration_tracker()
         self.commits_setup()
         self.update_beck_summary()
+        self.auto_time_setters()
         
         self.summing_box.setEnabled(False)
         for slider in [self.wellbeing_slider, self.excite_slider, self.focus_slider,
@@ -228,6 +227,25 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.cspr_commit()
         self.wefe_commit()
         self.slider_set_spinbox()
+    
+    def init_hydration_tracker(self):
+        """
+        Initializes the hydration tracker buttons.
+
+        This method connects the click events of the hydration tracker buttons
+        to the `commit_hydration` method with the corresponding hydration amount.
+
+        Raises:
+            Exception: If there is an error initializing the hydration tracker buttons.
+
+        """
+        try:
+            self.eight_ounce_cup.clicked.connect(lambda: self.commit_hydration(8))
+            self.sixteen_ounce_cup.clicked.connect(lambda: self.commit_hydration(16))
+            self.twenty_four_ounce_cup.clicked.connect(lambda: self.commit_hydration(24))
+            self.thirty_two_ounce_cup.clicked.connect(lambda: self.commit_hydration(32))
+        except Exception as e:
+            logger.error(f"Error initializing hydration tracker buttons: {e}", exc_info=True)
     
     # ////////////////////////////////////////////////////////////////////////////////////////
     # SLIDER UPDATES SPINBOX/VICE VERSA SETUP
@@ -310,26 +328,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
 
         except Exception as e:
             logger.error(f"{e}", exc_info=True)
-    
-    def init_hydration_tracker(self):
-        """
-        Initializes the hydration tracker buttons.
-
-        This method connects the click events of the hydration tracker buttons
-        to the `commit_hydration` method with the corresponding hydration amount.
-
-        Raises:
-            Exception: If there is an error initializing the hydration tracker buttons.
-
-        """
-        try:
-            self.eight_ounce_cup.clicked.connect(lambda: self.commit_hydration(8))
-            self.sixteen_ounce_cup.clicked.connect(lambda: self.commit_hydration(16))
-            self.twenty_four_ounce_cup.clicked.connect(lambda: self.commit_hydration(24))
-            self.thirty_two_ounce_cup.clicked.connect(lambda: self.commit_hydration(32))
-        except Exception as e:
-            logger.error(f"Error initializing hydration tracker buttons: {e}", exc_info=True)
-    
+            
     def switch_bds_page(self):
         """
         Switches the current widget to the BDS page and resizes the window to 300x300 pixels.
@@ -344,8 +343,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         None
         """
         self.mainStack.setCurrentWidget(self.bds_page)
-        self.resize(300, 300)
-        self.setFixedSize(300, 300)
+        self.resize(291, 317)
+        self.setFixedSize(291, 317)
     
     def switch_sleep_data_page(self):
         """
@@ -413,8 +412,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         self.mainStack.setCurrentWidget(self.mmdm_measures)
-        self.resize(175, 270)
-        self.setFixedSize(175, 270)
+        self.resize(215, 300)
+        self.setFixedSize(215, 300)
     
     def switch_to_wefe_measures(self):
         """
@@ -430,8 +429,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         self.mainStack.setCurrentWidget(self.wefe_measurements)
-        self.resize(175, 270)
-        self.setFixedSize(175, 270)
+        self.resize(215, 300)
+        self.setFixedSize(215, 300)
     
     def cspr_measures(self):
         """
@@ -448,8 +447,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         self.mainStack.setCurrentWidget(self.cspr_measurements)
-        self.resize(175, 270)
-        self.setFixedSize(175, 270)
+        self.resize(215, 300)
+        self.setFixedSize(215, 300)
     
     def mmwefecspr_datapage(self):
         """
@@ -481,8 +480,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         self.mainStack.setCurrentWidget(self.lilys_mod)
-        self.resize(250, 314)
-        self.setFixedSize(250, 314)
+        self.resize(300, 314)
+        self.setFixedSize(300, 314)
     
     def switch_to_lilys_dataviews(self):
         """
@@ -498,8 +497,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         None
         """
         self.mainStack.setCurrentWidget(self.lilys_dataviews)
-        self.resize(800, 456)
-        self.setFixedSize(800, 456)
+        self.resize(860, 456)
+        self.setFixedSize(860, 456)
     
     def auto_date_setters(self) -> None:
         """
