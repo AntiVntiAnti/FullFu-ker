@@ -317,6 +317,7 @@ class Ui_MainWindow(object):
 "/* ------------------------------------------------- \n"
 "Lilys Table Views\n"
 "------------------------------------------------- */\n"
+"#lily_walk_note_table,\n"
 "#time_in_room_table,\n"
 "#lily_diet_table,\n"
 "#lily_mood_table,\n"
@@ -326,8 +327,9 @@ class Ui_MainWindow(object):
 "    alternate-background-color: rgb(100, 157, 220);\n"
 "    selection-background-color: #7e57c2;\n"
 "    gridline-color:transparent;\n"
-"    color:rgb(245,245,245);\n"
+"    color:rgb(110, 74, 113);\n"
 "}\n"
+"#lily_walk_note_table::item,\n"
 "#time_in_room_table::item,\n"
 "#lily_diet_table::item,\n"
 "#lily_mood_table::item,\n"
@@ -336,6 +338,7 @@ class Ui_MainWindow(object):
 "    padding: 1px;\n"
 "    background:rgb(180, 149, 210);\n"
 "}\n"
+"#lily_walk_note_table::item:selected,\n"
 "#lily_notes_table::item:selected,\n"
 "#time_in_room_table::item:selected,\n"
 "#lily_diet_table::item:selected,\n"
@@ -1695,183 +1698,13 @@ class Ui_MainWindow(object):
         self.gridLayout_5 = QtWidgets.QGridLayout(self.mmdm_measures)
         self.gridLayout_5.setObjectName("gridLayout_5")
         self.mm_container = QtWidgets.QFrame(parent=self.mmdm_measures)
-        self.mm_container.setMinimumSize(QtCore.QSize(120, 0))
-        self.mm_container.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.mm_container.setMinimumSize(QtCore.QSize(125, 0))
+        self.mm_container.setMaximumSize(QtCore.QSize(125, 16777215))
         self.mm_container.setObjectName("mm_container")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.mm_container)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setHorizontalSpacing(0)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.depression_slider = QtWidgets.QSlider(parent=self.mm_container)
-        self.depression_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.depression_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(93,112,219);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(93,112,219);\n"
-"}\n"
-"/* ////////////////////////////////////////////////////////////////////////\n"
-"depression slider\n"
-"//////////////////////////////////////////////////////////////////////// */\n"
-"QSlider::handle:vertical {background:rgb(87,111,215);}\n"
-"QSlider::handle:vertical:hover {background:rgb(117,141,245);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(67,91,195);}\n"
-"QSlider::add-page:vertical {background:rgb(87,111,215);}\n"
-"QSlider::groove:vertical:hover{background:rgba(87,111,215,0.35);}\n"
-"\n"
-"QSlider::groove:vertical {background:rgba(87,111,215,0.15);}")
-        self.depression_slider.setMaximum(10)
-        self.depression_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.depression_slider.setObjectName("depression_slider")
-        self.gridLayout_2.addWidget(self.depression_slider, 1, 2, 1, 1)
-        self.mood_slider = QtWidgets.QSlider(parent=self.mm_container)
-        self.mood_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.mood_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(104,174,102);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(104,174,102);\n"
-"}\n"
-"\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QSlider Colors\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"\n"
-"QSlider::handle:vertical {background:rgb(96,175,107);}\n"
-"QSlider::handle:vertical:hover {background:rgb(126,205,137);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(76,155,87);}\n"
-"QSlider::add-page:vertical {background:rgb(96,175,107);}\n"
-"QSlider::groove:vertical:hover {background:rgba(96,175,107,0.35);}\n"
-"QSlider::groove:vertical {background:rgba(96,175,107,0.15);}\n"
-"")
-        self.mood_slider.setMaximum(10)
-        self.mood_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.mood_slider.setObjectName("mood_slider")
-        self.gridLayout_2.addWidget(self.mood_slider, 1, 0, 1, 1)
-        self.mixed_risk = QtWidgets.QSpinBox(parent=self.mm_container)
-        self.mixed_risk.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(220,99,108);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(220,99,108);\n"
-"}\n"
-"\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QSpinBox\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QSpinBox {color:rgb(222,100,109);}\n"
-"QSpinBox:hover {color: rgb(255,160,169);}\n"
-"QSpinBox:focus {color: rgb(252,130,139);}\n"
-"")
-        self.mixed_risk.setFrame(False)
-        self.mixed_risk.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.mixed_risk.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.mixed_risk.setMaximum(10)
-        self.mixed_risk.setObjectName("mixed_risk")
-        self.gridLayout_2.addWidget(self.mixed_risk, 3, 3, 1, 1)
-        self.depression = QtWidgets.QSpinBox(parent=self.mm_container)
-        self.depression.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(93,112,219);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(93,112,219);\n"
-"}\n"
-"\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QSpinBox\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QSpinBox {color:rgb(87,111,215);background:transparent;}\n"
-"QSpinBox:hover {color: rgb(147,171,255);}\n"
-"QSpinBox:focus {color: rgb(117,141,245);}\n"
-"")
-        self.depression.setFrame(False)
-        self.depression.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.depression.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.depression.setMaximum(10)
-        self.depression.setObjectName("depression")
-        self.gridLayout_2.addWidget(self.depression, 3, 2, 1, 1)
-        self.mania = QtWidgets.QSpinBox(parent=self.mm_container)
-        self.mania.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(184,153,222);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(184,153,222);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"    /* ///////////////////////////////////////////////////////////////\n"
-"    QSpinBox\n"
-"    /////////////////////////////////////////////////////////////// */\n"
-"    QSpinBox {color:rgb(220,180,74);}\n"
-"    QSpinBox:hover {color: rgb(255,240,134);}\n"
-"    QSpinBox:focus {color: rgb(250,210,104);}\n"
-"    ")
-        self.mania.setFrame(False)
-        self.mania.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.mania.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.mania.setMaximum(10)
-        self.mania.setObjectName("mania")
-        self.gridLayout_2.addWidget(self.mania, 3, 1, 1, 1)
-        self.mixed_risk_slider = QtWidgets.QSlider(parent=self.mm_container)
-        self.mixed_risk_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.mixed_risk_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(220,99,108);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(220,99,108);\n"
-"}\n"
-"\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QSlider Colors\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"\n"
-"QSlider::handle:vertical {background:rgb(222,100,109);}\n"
-"QSlider::handle:vertical:hover {background:rgb(252,130,139);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(202,80,89);}\n"
-"QSlider::add-page:vertical{background:rgb(222,100,109);}\n"
-"QSlider::groove:vertical:hover {background:rgba(222,100,109,0.35);}\n"
-"QSlider::groove:vertical {background:rgba(222,100,109,0.15);}")
-        self.mixed_risk_slider.setMaximum(10)
-        self.mixed_risk_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.mixed_risk_slider.setObjectName("mixed_risk_slider")
-        self.gridLayout_2.addWidget(self.mixed_risk_slider, 1, 3, 1, 1)
         self.mania_slider = QtWidgets.QSlider(parent=self.mm_container)
         self.mania_slider.setMinimumSize(QtCore.QSize(28, 200))
         self.mania_slider.setStyleSheet("\n"
@@ -1906,7 +1739,177 @@ class Ui_MainWindow(object):
         self.mania_slider.setMaximum(10)
         self.mania_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.mania_slider.setObjectName("mania_slider")
-        self.gridLayout_2.addWidget(self.mania_slider, 1, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.mania_slider, 1, 3, 1, 1)
+        self.mixed_risk = QtWidgets.QSpinBox(parent=self.mm_container)
+        self.mixed_risk.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(220,99,108);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(220,99,108);\n"
+"}\n"
+"\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QSpinBox\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QSpinBox {color:rgb(222,100,109);}\n"
+"QSpinBox:hover {color: rgb(255,160,169);}\n"
+"QSpinBox:focus {color: rgb(252,130,139);}\n"
+"")
+        self.mixed_risk.setFrame(False)
+        self.mixed_risk.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.mixed_risk.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.mixed_risk.setMaximum(10)
+        self.mixed_risk.setObjectName("mixed_risk")
+        self.gridLayout_2.addWidget(self.mixed_risk, 2, 5, 1, 1)
+        self.mixed_risk_slider = QtWidgets.QSlider(parent=self.mm_container)
+        self.mixed_risk_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.mixed_risk_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(220,99,108);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(220,99,108);\n"
+"}\n"
+"\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QSlider Colors\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"\n"
+"QSlider::handle:vertical {background:rgb(222,100,109);}\n"
+"QSlider::handle:vertical:hover {background:rgb(252,130,139);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(202,80,89);}\n"
+"QSlider::add-page:vertical{background:rgb(222,100,109);}\n"
+"QSlider::groove:vertical:hover {background:rgba(222,100,109,0.35);}\n"
+"QSlider::groove:vertical {background:rgba(222,100,109,0.15);}")
+        self.mixed_risk_slider.setMaximum(10)
+        self.mixed_risk_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.mixed_risk_slider.setObjectName("mixed_risk_slider")
+        self.gridLayout_2.addWidget(self.mixed_risk_slider, 1, 5, 1, 1)
+        self.mania = QtWidgets.QSpinBox(parent=self.mm_container)
+        self.mania.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(184,153,222);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(184,153,222);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"    /* ///////////////////////////////////////////////////////////////\n"
+"    QSpinBox\n"
+"    /////////////////////////////////////////////////////////////// */\n"
+"    QSpinBox {color:rgb(220,180,74);}\n"
+"    QSpinBox:hover {color: rgb(255,240,134);}\n"
+"    QSpinBox:focus {color: rgb(250,210,104);}\n"
+"    ")
+        self.mania.setFrame(False)
+        self.mania.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.mania.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.mania.setMaximum(10)
+        self.mania.setObjectName("mania")
+        self.gridLayout_2.addWidget(self.mania, 2, 3, 1, 1)
+        self.depression_slider = QtWidgets.QSlider(parent=self.mm_container)
+        self.depression_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.depression_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(93,112,219);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(93,112,219);\n"
+"}\n"
+"/* ////////////////////////////////////////////////////////////////////////\n"
+"depression slider\n"
+"//////////////////////////////////////////////////////////////////////// */\n"
+"QSlider::handle:vertical {background:rgb(87,111,215);}\n"
+"QSlider::handle:vertical:hover {background:rgb(117,141,245);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(67,91,195);}\n"
+"QSlider::add-page:vertical {background:rgb(87,111,215);}\n"
+"QSlider::groove:vertical:hover{background:rgba(87,111,215,0.35);}\n"
+"\n"
+"QSlider::groove:vertical {background:rgba(87,111,215,0.15);}")
+        self.depression_slider.setMaximum(10)
+        self.depression_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.depression_slider.setObjectName("depression_slider")
+        self.gridLayout_2.addWidget(self.depression_slider, 1, 4, 1, 1)
+        self.mood_slider = QtWidgets.QSlider(parent=self.mm_container)
+        self.mood_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.mood_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(104,174,102);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(104,174,102);\n"
+"}\n"
+"\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QSlider Colors\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"\n"
+"QSlider::handle:vertical {background:rgb(96,175,107);}\n"
+"QSlider::handle:vertical:hover {background:rgb(126,205,137);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(76,155,87);}\n"
+"QSlider::add-page:vertical {background:rgb(96,175,107);}\n"
+"QSlider::groove:vertical:hover {background:rgba(96,175,107,0.35);}\n"
+"QSlider::groove:vertical {background:rgba(96,175,107,0.15);}\n"
+"")
+        self.mood_slider.setMaximum(10)
+        self.mood_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.mood_slider.setObjectName("mood_slider")
+        self.gridLayout_2.addWidget(self.mood_slider, 1, 2, 1, 1)
+        self.depression = QtWidgets.QSpinBox(parent=self.mm_container)
+        self.depression.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(93,112,219);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(93,112,219);\n"
+"}\n"
+"\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QSpinBox\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QSpinBox {color:rgb(87,111,215);background:transparent;}\n"
+"QSpinBox:hover {color: rgb(147,171,255);}\n"
+"QSpinBox:focus {color: rgb(117,141,245);}\n"
+"")
+        self.depression.setFrame(False)
+        self.depression.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.depression.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.depression.setMaximum(10)
+        self.depression.setObjectName("depression")
+        self.gridLayout_2.addWidget(self.depression, 2, 4, 1, 1)
         self.mood = QtWidgets.QSpinBox(parent=self.mm_container)
         self.mood.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
@@ -1933,143 +1936,47 @@ class Ui_MainWindow(object):
         self.mood.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
         self.mood.setMaximum(10)
         self.mood.setObjectName("mood")
-        self.gridLayout_2.addWidget(self.mood, 3, 0, 1, 1)
-        self.gridLayout_5.addWidget(self.mm_container, 0, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.mood, 2, 2, 1, 1)
+        self.gridLayout_5.addWidget(self.mm_container, 0, 0, 1, 1)
         self.mainStack.addWidget(self.mmdm_measures)
         self.wefe_measurements = QtWidgets.QWidget()
         self.wefe_measurements.setObjectName("wefe_measurements")
         self.gridLayout_11 = QtWidgets.QGridLayout(self.wefe_measurements)
         self.gridLayout_11.setObjectName("gridLayout_11")
         self.wefe_container = QtWidgets.QFrame(parent=self.wefe_measurements)
-        self.wefe_container.setMinimumSize(QtCore.QSize(120, 0))
-        self.wefe_container.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.wefe_container.setMinimumSize(QtCore.QSize(125, 0))
+        self.wefe_container.setMaximumSize(QtCore.QSize(125, 16777215))
         self.wefe_container.setObjectName("wefe_container")
         self.gridLayout_21 = QtWidgets.QGridLayout(self.wefe_container)
         self.gridLayout_21.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_21.setHorizontalSpacing(0)
         self.gridLayout_21.setVerticalSpacing(6)
         self.gridLayout_21.setObjectName("gridLayout_21")
-        self.energy_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
-        self.energy_spinbox.setStyleSheet("\n"
+        self.wellbeing_slider = QtWidgets.QSlider(parent=self.wefe_container)
+        self.wellbeing_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.wellbeing_slider.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
 "QToolTip\n"
 "/////////////////////////////////////////////////////////////// */\n"
 "QToolTip {\n"
 "    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(104,174,102);\n"
+"    border: 1px solid rgb(184,153,222);\n"
 "    border-radius: 5px; \n"
 "    padding:4px; \n"
 "    text-align: left;\n"
-"    color: rgb(104,174,102);\n"
+"    color: rgb(184,153,222);\n"
 "}\n"
-"\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QSpinBox\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QSpinBox {background:transparent;color:rgb(96,175,107);}\n"
-"QSpinBox:hover {color: rgb(156,235,167);}\n"
-"QSpinBox:focus {color: rgb(126,205,137);}\n"
+"QSlider::groove:vertical {background:rgba(186,153,219, 0.15);}\n"
+"QSlider::handle:vertical {background:rgb(186,153,219);}\n"
+"QSlider::handle:vertical:hover {background:rgb(216,183,249);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(166,133,199);}\n"
+"QSlider::add-page:vertical{background:rgb(186,153,219);}\n"
+"QSlider::groove:vertical:hover {background:rgba(186,153,219,0.35);} \n"
 "")
-        self.energy_spinbox.setFrame(False)
-        self.energy_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.energy_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.energy_spinbox.setMaximum(10)
-        self.energy_spinbox.setObjectName("energy_spinbox")
-        self.gridLayout_21.addWidget(self.energy_spinbox, 3, 3, 1, 1)
-        self.focus_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
-        self.focus_spinbox.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(100,172,173);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(100,172,173);\n"
-"}\n"
-"QSpinBox {background:transparent;color:rgb(89,172,172);}\n"
-"QSpinBox:hover {color: rgb(149,232,232);}\n"
-"QSpinBox:focus {color: rgb(119,202,202);}\n"
-"")
-        self.focus_spinbox.setFrame(False)
-        self.focus_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.focus_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.focus_spinbox.setMaximum(10)
-        self.focus_spinbox.setObjectName("focus_spinbox")
-        self.gridLayout_21.addWidget(self.focus_spinbox, 3, 2, 1, 1)
-        self.focus_slider = QtWidgets.QSlider(parent=self.wefe_container)
-        self.focus_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.focus_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(100,172,173);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(100,172,173);\n"
-"}\n"
-"/* ////////////////////////////////////////////////////////////////////////\n"
-"focus slider\n"
-"//////////////////////////////////////////////////////////////////////// */\n"
-"QSlider::handle:vertical {background:rgb(89,172,172);}\n"
-"QSlider::groove:vertical{background:rgba(89,172,172, 0.15);}\n"
-"QSlider::handle:vertical:hover {background:rgb(119,202,202);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(69,152,152);}\n"
-"QSlider::add-page:vertical{background:rgb(89,172,172);}\n"
-"QSlider::groove:vertical:hover {background:rgba(89,172,172,0.35);}")
-        self.focus_slider.setMaximum(10)
-        self.focus_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.focus_slider.setObjectName("focus_slider")
-        self.gridLayout_21.addWidget(self.focus_slider, 0, 2, 2, 1)
-        self.excite_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
-        self.excite_spinbox.setStyleSheet("\n"
-"    /* ///////////////////////////////////////////////////////////////\n"
-"    QSpinBox\n"
-"    /////////////////////////////////////////////////////////////// */\n"
-"    QSpinBox {color:rgb(122,177,222);}\n"
-"    QSpinBox:hover {color: rgb(182,237,255);}\n"
-"    QSpinBox:focus {color: rgb(152,207,252);}\n"
-"    ")
-        self.excite_spinbox.setFrame(False)
-        self.excite_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.excite_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.excite_spinbox.setMaximum(10)
-        self.excite_spinbox.setObjectName("excite_spinbox")
-        self.gridLayout_21.addWidget(self.excite_spinbox, 3, 1, 1, 1)
-        self.energy_slider = QtWidgets.QSlider(parent=self.wefe_container)
-        self.energy_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.energy_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(104,174,102);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(104,174,102);\n"
-"}\n"
-"\n"
-"/* ////////////////////////////////////////////////////////////////////////\n"
-"energy slider\n"
-"//////////////////////////////////////////////////////////////////////// */\n"
-"QSlider::handle:vertical {background:rgb(96,174,106);}\n"
-"QSlider::groove:vertical {background:rgba(96,174,106, 0.15);}\n"
-"QSlider::handle:vertical:hover {background:rgb(126,204,136);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(76,154,86);}\n"
-"QSlider::add-page:vertical {background:rgb(96,174,106);}\n"
-"QSlider::groove:vertical:hover {background:rgba(96,174,106,0.35);}\n"
-"")
-        self.energy_slider.setMaximum(10)
-        self.energy_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.energy_slider.setObjectName("energy_slider")
-        self.gridLayout_21.addWidget(self.energy_slider, 0, 3, 2, 1)
+        self.wellbeing_slider.setMaximum(10)
+        self.wellbeing_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.wellbeing_slider.setObjectName("wellbeing_slider")
+        self.gridLayout_21.addWidget(self.wellbeing_slider, 1, 0, 1, 1)
         self.excite_slider = QtWidgets.QSlider(parent=self.wefe_container)
         self.excite_slider.setMinimumSize(QtCore.QSize(28, 200))
         self.excite_slider.setStyleSheet("\n"
@@ -2099,32 +2006,128 @@ class Ui_MainWindow(object):
         self.excite_slider.setMaximum(10)
         self.excite_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.excite_slider.setObjectName("excite_slider")
-        self.gridLayout_21.addWidget(self.excite_slider, 0, 1, 2, 1)
-        self.wellbeing_slider = QtWidgets.QSlider(parent=self.wefe_container)
-        self.wellbeing_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.wellbeing_slider.setStyleSheet("\n"
+        self.gridLayout_21.addWidget(self.excite_slider, 1, 1, 1, 1)
+        self.focus_slider = QtWidgets.QSlider(parent=self.wefe_container)
+        self.focus_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.focus_slider.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
 "QToolTip\n"
 "/////////////////////////////////////////////////////////////// */\n"
 "QToolTip {\n"
 "    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(184,153,222);\n"
+"    border: 1px solid rgb(100,172,173);\n"
 "    border-radius: 5px; \n"
 "    padding:4px; \n"
 "    text-align: left;\n"
-"    color: rgb(184,153,222);\n"
+"    color: rgb(100,172,173);\n"
 "}\n"
-"QSlider::groove:vertical {background:rgba(186,153,219, 0.15);}\n"
-"QSlider::handle:vertical {background:rgb(186,153,219);}\n"
-"QSlider::handle:vertical:hover {background:rgb(216,183,249);}\n"
-"QSlider::handle:vertical:pressed {background:rgb(166,133,199);}\n"
-"QSlider::add-page:vertical{background:rgb(186,153,219);}\n"
-"QSlider::groove:vertical:hover {background:rgba(186,153,219,0.35);} \n"
+"/* ////////////////////////////////////////////////////////////////////////\n"
+"focus slider\n"
+"//////////////////////////////////////////////////////////////////////// */\n"
+"QSlider::handle:vertical {background:rgb(89,172,172);}\n"
+"QSlider::groove:vertical{background:rgba(89,172,172, 0.15);}\n"
+"QSlider::handle:vertical:hover {background:rgb(119,202,202);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(69,152,152);}\n"
+"QSlider::add-page:vertical{background:rgb(89,172,172);}\n"
+"QSlider::groove:vertical:hover {background:rgba(89,172,172,0.35);}")
+        self.focus_slider.setMaximum(10)
+        self.focus_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.focus_slider.setObjectName("focus_slider")
+        self.gridLayout_21.addWidget(self.focus_slider, 1, 5, 1, 1)
+        self.energy_slider = QtWidgets.QSlider(parent=self.wefe_container)
+        self.energy_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.energy_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(104,174,102);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(104,174,102);\n"
+"}\n"
+"\n"
+"/* ////////////////////////////////////////////////////////////////////////\n"
+"energy slider\n"
+"//////////////////////////////////////////////////////////////////////// */\n"
+"QSlider::handle:vertical {background:rgb(96,174,106);}\n"
+"QSlider::groove:vertical {background:rgba(96,174,106, 0.15);}\n"
+"QSlider::handle:vertical:hover {background:rgb(126,204,136);}\n"
+"QSlider::handle:vertical:pressed {background:rgb(76,154,86);}\n"
+"QSlider::add-page:vertical {background:rgb(96,174,106);}\n"
+"QSlider::groove:vertical:hover {background:rgba(96,174,106,0.35);}\n"
 "")
-        self.wellbeing_slider.setMaximum(10)
-        self.wellbeing_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.wellbeing_slider.setObjectName("wellbeing_slider")
-        self.gridLayout_21.addWidget(self.wellbeing_slider, 0, 0, 2, 1)
+        self.energy_slider.setMaximum(10)
+        self.energy_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.energy_slider.setObjectName("energy_slider")
+        self.gridLayout_21.addWidget(self.energy_slider, 1, 6, 1, 1)
+        self.energy_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
+        self.energy_spinbox.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(104,174,102);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(104,174,102);\n"
+"}\n"
+"\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QSpinBox\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QSpinBox {background:transparent;color:rgb(96,175,107);}\n"
+"QSpinBox:hover {color: rgb(156,235,167);}\n"
+"QSpinBox:focus {color: rgb(126,205,137);}\n"
+"")
+        self.energy_spinbox.setFrame(False)
+        self.energy_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.energy_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.energy_spinbox.setMaximum(10)
+        self.energy_spinbox.setObjectName("energy_spinbox")
+        self.gridLayout_21.addWidget(self.energy_spinbox, 2, 6, 1, 1)
+        self.focus_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
+        self.focus_spinbox.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(100,172,173);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(100,172,173);\n"
+"}\n"
+"QSpinBox {background:transparent;color:rgb(89,172,172);}\n"
+"QSpinBox:hover {color: rgb(149,232,232);}\n"
+"QSpinBox:focus {color: rgb(119,202,202);}\n"
+"")
+        self.focus_spinbox.setFrame(False)
+        self.focus_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.focus_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.focus_spinbox.setMaximum(10)
+        self.focus_spinbox.setObjectName("focus_spinbox")
+        self.gridLayout_21.addWidget(self.focus_spinbox, 2, 5, 1, 1)
+        self.excite_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
+        self.excite_spinbox.setStyleSheet("\n"
+"    /* ///////////////////////////////////////////////////////////////\n"
+"    QSpinBox\n"
+"    /////////////////////////////////////////////////////////////// */\n"
+"    QSpinBox {color:rgb(122,177,222);}\n"
+"    QSpinBox:hover {color: rgb(182,237,255);}\n"
+"    QSpinBox:focus {color: rgb(152,207,252);}\n"
+"    ")
+        self.excite_spinbox.setFrame(False)
+        self.excite_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.excite_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.excite_spinbox.setMaximum(10)
+        self.excite_spinbox.setObjectName("excite_spinbox")
+        self.gridLayout_21.addWidget(self.excite_spinbox, 2, 1, 1, 1)
         self.wellbeing_spinbox = QtWidgets.QSpinBox(parent=self.wefe_container)
         self.wellbeing_spinbox.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
@@ -2151,16 +2154,16 @@ class Ui_MainWindow(object):
         self.wellbeing_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
         self.wellbeing_spinbox.setMaximum(10)
         self.wellbeing_spinbox.setObjectName("wellbeing_spinbox")
-        self.gridLayout_21.addWidget(self.wellbeing_spinbox, 3, 0, 1, 1)
-        self.gridLayout_11.addWidget(self.wefe_container, 0, 0, 1, 1)
+        self.gridLayout_21.addWidget(self.wellbeing_spinbox, 2, 0, 1, 1)
+        self.gridLayout_11.addWidget(self.wefe_container, 0, 1, 1, 1)
         self.mainStack.addWidget(self.wefe_measurements)
         self.cspr_measurements = QtWidgets.QWidget()
         self.cspr_measurements.setObjectName("cspr_measurements")
         self.gridLayout_19 = QtWidgets.QGridLayout(self.cspr_measurements)
         self.gridLayout_19.setObjectName("gridLayout_19")
         self.cspr_container = QtWidgets.QFrame(parent=self.cspr_measurements)
-        self.cspr_container.setMinimumSize(QtCore.QSize(120, 0))
-        self.cspr_container.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.cspr_container.setMinimumSize(QtCore.QSize(125, 0))
+        self.cspr_container.setMaximumSize(QtCore.QSize(125, 16777215))
         self.cspr_container.setObjectName("cspr_container")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.cspr_container)
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -2189,56 +2192,33 @@ class Ui_MainWindow(object):
         self.calm_spinbox.setMaximum(10)
         self.calm_spinbox.setObjectName("calm_spinbox")
         self.gridLayout_3.addWidget(self.calm_spinbox, 1, 0, 1, 1)
-        self.stress_spinbox = QtWidgets.QSpinBox(parent=self.cspr_container)
-        self.stress_spinbox.setStyleSheet("\n"
+        self.calm_slider = QtWidgets.QSlider(parent=self.cspr_container)
+        self.calm_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.calm_slider.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
 "QToolTip\n"
 "/////////////////////////////////////////////////////////////// */\n"
 "QToolTip {\n"
 "    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(249,195,94);\n"
+"    border: 1px solid rgb(125,123,202);\n"
 "    border-radius: 5px; \n"
 "    padding:4px; \n"
 "    text-align: left;\n"
-"    color: rgb(249,195,94);\n"
+"    color: rgb(125,123,202);\n"
 "}\n"
 "/* ////////////////////////////////////////////////////////////////////////\n"
-"Stress\n"
+"calm slider\n"
 "//////////////////////////////////////////////////////////////////////// */\n"
-"#stress_spinbox {background:transparent;color:rgb(254,195,105);}\n"
-"#stress_spinbox:hover {color: rgb(255,255,165);}\n"
-"#stress_spinbox:focus {color: rgb(255,225,135); }")
-        self.stress_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.stress_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        self.stress_spinbox.setAccelerated(True)
-        self.stress_spinbox.setMaximum(10)
-        self.stress_spinbox.setObjectName("stress_spinbox")
-        self.gridLayout_3.addWidget(self.stress_spinbox, 1, 1, 1, 1)
-        self.pain_slider = QtWidgets.QSlider(parent=self.cspr_container)
-        self.pain_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.pain_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(223,134,93);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(223,134,93);\n"
-"}\n"
-"/* Pain Slider */\n"
-"#pain_slider::handle:vertical {background:rgb(229,133,98);}\n"
-"#pain_slider::handle:vertical:hover {background:rgb(255,163,128);}\n"
-"#pain_slider::handle:vertical:pressed {background:rgb(209,113,78);}\n"
-"#pain_slider::add-page:vertical {background:rgb(229,133,98);}\n"
-"#pain_slider::groove:vertical:hover {background:rgba(229,133,98,0.35);}\n"
-"#pain_slider::groove:vertical {background:rgba(229,133,98,0.15);}")
-        self.pain_slider.setMaximum(10)
-        self.pain_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.pain_slider.setObjectName("pain_slider")
-        self.gridLayout_3.addWidget(self.pain_slider, 0, 2, 1, 1)
+"#calm_slider::handle:vertical {background:rgb(123,123,199);}\n"
+"#calm_slider::handle:vertical:hover {background:rgb(153,153,229);}\n"
+"#calm_slider::handle:vertical:pressed {background:rgb(103,103,179);}\n"
+"#calm_slider::add-page:vertical {background:rgb(123,123,199);}\n"
+"#calm_slider::groove:vertical:hover {background:rgba(123,123,199,0.35);}\n"
+"#calm_slider::groove:vertical {background:rgba(123,123,199,0.15);}")
+        self.calm_slider.setMaximum(10)
+        self.calm_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.calm_slider.setObjectName("calm_slider")
+        self.gridLayout_3.addWidget(self.calm_slider, 0, 0, 1, 1)
         self.stress_slider = QtWidgets.QSlider(parent=self.cspr_container)
         self.stress_slider.setMinimumSize(QtCore.QSize(28, 200))
         self.stress_slider.setStyleSheet("\n"
@@ -2267,6 +2247,83 @@ class Ui_MainWindow(object):
         self.stress_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.stress_slider.setObjectName("stress_slider")
         self.gridLayout_3.addWidget(self.stress_slider, 0, 1, 1, 1)
+        self.pain_slider = QtWidgets.QSlider(parent=self.cspr_container)
+        self.pain_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.pain_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(223,134,93);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(223,134,93);\n"
+"}\n"
+"/* Pain Slider */\n"
+"#pain_slider::handle:vertical {background:rgb(229,133,98);}\n"
+"#pain_slider::handle:vertical:hover {background:rgb(255,163,128);}\n"
+"#pain_slider::handle:vertical:pressed {background:rgb(209,113,78);}\n"
+"#pain_slider::add-page:vertical {background:rgb(229,133,98);}\n"
+"#pain_slider::groove:vertical:hover {background:rgba(229,133,98,0.35);}\n"
+"#pain_slider::groove:vertical {background:rgba(229,133,98,0.15);}")
+        self.pain_slider.setMaximum(10)
+        self.pain_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.pain_slider.setObjectName("pain_slider")
+        self.gridLayout_3.addWidget(self.pain_slider, 0, 2, 1, 1)
+        self.rage_slider = QtWidgets.QSlider(parent=self.cspr_container)
+        self.rage_slider.setMinimumSize(QtCore.QSize(28, 200))
+        self.rage_slider.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(220,99,108);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(220,99,108);\n"
+"}\n"
+"/* ////////////////////////////////////////////////////////////////////////\n"
+"rage slider\n"
+"//////////////////////////////////////////////////////////////////////// */\n"
+"#rage_slider::handle:vertical {background:rgb(229,100,111);}\n"
+"#rage_slider::handle:vertical:hover {background:rgb(255,130,141);}\n"
+"#rage_slider::handle:vertical:pressed {background:rgb(209,80,91);}\n"
+"#rage_slider::add-page:vertical {background:rgb(229,100,111);}\n"
+"#rage_slider::groove:vertical:hover {background:rgba(229,100,111,0.35);}\n"
+"#rage_slider::groove:vertical {background:rgba(229,100,111,0.15);}")
+        self.rage_slider.setMaximum(10)
+        self.rage_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.rage_slider.setObjectName("rage_slider")
+        self.gridLayout_3.addWidget(self.rage_slider, 0, 3, 1, 1)
+        self.stress_spinbox = QtWidgets.QSpinBox(parent=self.cspr_container)
+        self.stress_spinbox.setStyleSheet("\n"
+"/* ///////////////////////////////////////////////////////////////\n"
+"QToolTip\n"
+"/////////////////////////////////////////////////////////////// */\n"
+"QToolTip {\n"
+"    background: rgba(23,23,23, 150);\n"
+"    border: 1px solid rgb(249,195,94);\n"
+"    border-radius: 5px; \n"
+"    padding:4px; \n"
+"    text-align: left;\n"
+"    color: rgb(249,195,94);\n"
+"}\n"
+"/* ////////////////////////////////////////////////////////////////////////\n"
+"Stress\n"
+"//////////////////////////////////////////////////////////////////////// */\n"
+"#stress_spinbox {background:transparent;color:rgb(254,195,105);}\n"
+"#stress_spinbox:hover {color: rgb(255,255,165);}\n"
+"#stress_spinbox:focus {color: rgb(255,225,135); }")
+        self.stress_spinbox.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.stress_spinbox.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        self.stress_spinbox.setAccelerated(True)
+        self.stress_spinbox.setMaximum(10)
+        self.stress_spinbox.setObjectName("stress_spinbox")
+        self.gridLayout_3.addWidget(self.stress_spinbox, 1, 1, 1, 1)
         self.pain_spinbox = QtWidgets.QSpinBox(parent=self.cspr_container)
         self.pain_spinbox.setStyleSheet("\n"
 "/* ///////////////////////////////////////////////////////////////\n"
@@ -2314,61 +2371,7 @@ class Ui_MainWindow(object):
         self.rage_spinbox.setMaximum(10)
         self.rage_spinbox.setObjectName("rage_spinbox")
         self.gridLayout_3.addWidget(self.rage_spinbox, 1, 3, 1, 1)
-        self.rage_slider = QtWidgets.QSlider(parent=self.cspr_container)
-        self.rage_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.rage_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(220,99,108);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(220,99,108);\n"
-"}\n"
-"/* ////////////////////////////////////////////////////////////////////////\n"
-"rage slider\n"
-"//////////////////////////////////////////////////////////////////////// */\n"
-"#rage_slider::handle:vertical {background:rgb(229,100,111);}\n"
-"#rage_slider::handle:vertical:hover {background:rgb(255,130,141);}\n"
-"#rage_slider::handle:vertical:pressed {background:rgb(209,80,91);}\n"
-"#rage_slider::add-page:vertical {background:rgb(229,100,111);}\n"
-"#rage_slider::groove:vertical:hover {background:rgba(229,100,111,0.35);}\n"
-"#rage_slider::groove:vertical {background:rgba(229,100,111,0.15);}")
-        self.rage_slider.setMaximum(10)
-        self.rage_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.rage_slider.setObjectName("rage_slider")
-        self.gridLayout_3.addWidget(self.rage_slider, 0, 3, 1, 1)
-        self.calm_slider = QtWidgets.QSlider(parent=self.cspr_container)
-        self.calm_slider.setMinimumSize(QtCore.QSize(28, 200))
-        self.calm_slider.setStyleSheet("\n"
-"/* ///////////////////////////////////////////////////////////////\n"
-"QToolTip\n"
-"/////////////////////////////////////////////////////////////// */\n"
-"QToolTip {\n"
-"    background: rgba(23,23,23, 150);\n"
-"    border: 1px solid rgb(125,123,202);\n"
-"    border-radius: 5px; \n"
-"    padding:4px; \n"
-"    text-align: left;\n"
-"    color: rgb(125,123,202);\n"
-"}\n"
-"/* ////////////////////////////////////////////////////////////////////////\n"
-"calm slider\n"
-"//////////////////////////////////////////////////////////////////////// */\n"
-"#calm_slider::handle:vertical {background:rgb(123,123,199);}\n"
-"#calm_slider::handle:vertical:hover {background:rgb(153,153,229);}\n"
-"#calm_slider::handle:vertical:pressed {background:rgb(103,103,179);}\n"
-"#calm_slider::add-page:vertical {background:rgb(123,123,199);}\n"
-"#calm_slider::groove:vertical:hover {background:rgba(123,123,199,0.35);}\n"
-"#calm_slider::groove:vertical {background:rgba(123,123,199,0.15);}")
-        self.calm_slider.setMaximum(10)
-        self.calm_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.calm_slider.setObjectName("calm_slider")
-        self.gridLayout_3.addWidget(self.calm_slider, 0, 0, 1, 1)
-        self.gridLayout_19.addWidget(self.cspr_container, 0, 0, 1, 1)
+        self.gridLayout_19.addWidget(self.cspr_container, 0, 1, 1, 1)
         self.mainStack.addWidget(self.cspr_measurements)
         self.mmwefecspr_dataviews = QtWidgets.QWidget()
         self.mmwefecspr_dataviews.setObjectName("mmwefecspr_dataviews")
@@ -3045,33 +3048,19 @@ class Ui_MainWindow(object):
         self.lily_walk_table.setCornerButtonEnabled(False)
         self.lily_walk_table.setObjectName("lily_walk_table")
         self.lily_walk_table.horizontalHeader().setCascadingSectionResizes(True)
-        self.lily_walk_table.horizontalHeader().setDefaultSectionSize(75)
-        self.lily_walk_table.horizontalHeader().setMinimumSectionSize(15)
+        self.lily_walk_table.horizontalHeader().setDefaultSectionSize(100)
+        self.lily_walk_table.horizontalHeader().setMinimumSectionSize(75)
         self.lily_walk_table.horizontalHeader().setStretchLastSection(True)
         self.lily_walk_table.verticalHeader().setCascadingSectionResizes(True)
         self.lily_walk_table.verticalHeader().setSortIndicatorShown(True)
         self.gridLayout_34.addWidget(self.lily_walk_table, 1, 0, 1, 1)
         self.lily_walk_note_table = QtWidgets.QTableView(parent=self.frame_36)
-        self.lily_walk_note_table.setStyleSheet("QTableView { \n"
-"    background-color: transparent;\n"
-"    alternate-background-color: rgb(100, 157, 220);\n"
-"    selection-background-color: #7e57c2;\n"
-"    gridline-color:transparent;\n"
-"    color:rgb(245,245,245);\n"
-"}\n"
-"QTableView::item {\n"
-"    padding: 1px;\n"
-"    background:rgb(180, 149, 210);\n"
-"}\n"
-"QTableView::item:selected {\n"
-"    color: #fff;\n"
-"    background:rgb(23, 23, 23);\n"
-"}")
+        self.lily_walk_note_table.setStyleSheet("")
         self.lily_walk_note_table.setShowGrid(False)
         self.lily_walk_note_table.setSortingEnabled(True)
         self.lily_walk_note_table.setObjectName("lily_walk_note_table")
         self.lily_walk_note_table.horizontalHeader().setCascadingSectionResizes(True)
-        self.lily_walk_note_table.horizontalHeader().setDefaultSectionSize(75)
+        self.lily_walk_note_table.horizontalHeader().setDefaultSectionSize(100)
         self.lily_walk_note_table.horizontalHeader().setMinimumSectionSize(15)
         self.lily_walk_note_table.horizontalHeader().setStretchLastSection(True)
         self.lily_walk_note_table.verticalHeader().setCascadingSectionResizes(True)
@@ -3349,8 +3338,6 @@ class Ui_MainWindow(object):
         self.actionCommitCSPR.setObjectName("actionCommitCSPR")
         self.actionCommitLilysTimeInRoom = QtGui.QAction(parent=MainWindow)
         self.actionCommitLilysTimeInRoom.setObjectName("actionCommitLilysTimeInRoom")
-        self.menuTracker.addAction(self.actionMaximize)
-        self.menuTracker.addAction(self.actionMinimize)
         self.menuTracker.addAction(self.actionClose)
         self.menuViews.addAction(self.actionBDSInput)
         self.menuViews.addAction(self.actionSleepDataView)
@@ -3405,31 +3392,31 @@ class Ui_MainWindow(object):
         self.food_eaten.setToolTip(_translate("MainWindow", "Input food eaten or shake drank!"))
         self.food_eaten.setPlaceholderText(_translate("MainWindow", "What did I eat..."))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Awake and Time Asleep"))
+        self.mania_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mania</p></body></html>"))
+        self.mixed_risk.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mixed Risk</p></body></html>"))
+        self.mixed_risk_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mixed Risk</p></body></html>"))
+        self.mania.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mania</p></body></html>"))
         self.depression_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Depression</p></body></html>"))
         self.mood_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mood</p></body></html>"))
-        self.mixed_risk.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mixed Risk</p></body></html>"))
         self.depression.setToolTip(_translate("MainWindow", "<html><head/><body><p>Depression</p></body></html>"))
-        self.mania.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mania</p></body></html>"))
-        self.mixed_risk_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mixed Risk</p></body></html>"))
-        self.mania_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mania</p></body></html>"))
         self.mood.setToolTip(_translate("MainWindow", "<html><head/><body><p>Mood</p></body></html>"))
+        self.wellbeing_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Wellbeing</p></body></html>"))
+        self.excite_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Excitement</p></body></html>"))
+        self.focus_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>focus</p></body></html>"))
+        self.energy_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Energy</p></body></html>"))
         self.energy_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Energy</p></body></html>"))
         self.focus_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>focus</p></body></html>"))
-        self.focus_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>focus</p></body></html>"))
         self.excite_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Excitement</p></body></html>"))
-        self.energy_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Energy</p></body></html>"))
-        self.excite_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Excitement</p></body></html>"))
-        self.wellbeing_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Wellbeing</p></body></html>"))
         self.wellbeing_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Wellbeing</p></body></html>"))
         self.calm_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Calm</p></body></html>"))
-        self.stress_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Stress</p></body></html>"))
-        self.pain_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Pain</p></body></html>"))
+        self.calm_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Calm</p></body></html>"))
         self.stress_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Stress</p></body></html>"))
         self.stress_slider.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.pain_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Pain</p></body></html>"))
+        self.rage_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Rage</p></body></html>"))
+        self.stress_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Stress</p></body></html>"))
         self.pain_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Pain</p></body></html>"))
         self.rage_spinbox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Rage</p></body></html>"))
-        self.rage_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Rage</p></body></html>"))
-        self.calm_slider.setToolTip(_translate("MainWindow", "<html><head/><body><p>Calm</p></body></html>"))
         self.mmwefecspr_dataviews_2.setTabText(self.mmwefecspr_dataviews_2.indexOf(self.tab_10), _translate("MainWindow", "MM"))
         self.summing_box.setToolTip(_translate("MainWindow", "<html><head/><body><p>Summing Box</p></body></html>"))
         self.mmwefecspr_dataviews_2.setTabText(self.mmwefecspr_dataviews_2.indexOf(self.tab_11), _translate("MainWindow", "WEFE"))

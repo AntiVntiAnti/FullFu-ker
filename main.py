@@ -1,9 +1,18 @@
 from PyQt6.QtWidgets import QApplication
+from PyQt6.QtGui import QIcon
+from PyQt6 import QtGui
 from ui.main_window import MainWindow
-import sys
+import sys, os
 from logger_setup import logger
 from ui.main_ui import res
+basedir = os.path.dirname(__file__)
 
+try:
+    from ctypes import windll  # Only exists on Windows.
+    myappid = 'mycompany.myproduct.subproduct.version'
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
 
 def run_app():
     """
@@ -19,6 +28,7 @@ def run_app():
     logger.info("ENTER BY PORTAL START YES!")
     try:
         app = QApplication(sys.argv)
+        app.setWindowIcon(QtGui.QIcon(os.path.join(basedir, 'procto.icns')))
         window = MainWindow()
         window.show()
         sys.exit(app.exec())

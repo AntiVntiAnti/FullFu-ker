@@ -497,8 +497,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         None
         """
         self.mainStack.setCurrentWidget(self.lilys_dataviews)
-        self.resize(860, 456)
-        self.setFixedSize(860, 456)
+        self.resize(800, 456)
+        self.setFixedSize(800, 456)
     
     def auto_date_setters(self) -> None:
         """
