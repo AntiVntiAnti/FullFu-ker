@@ -78,14 +78,10 @@ from database.add_data.lily_mod.lily_walks import add_lily_walk_data
 from database.add_data.lily_mod.lily_time_in_room import add_time_in_room_data
 from database.add_data.lily_mod.lily_mood import add_lily_mood_data
 from database.add_data.lily_mod.lily_notes import add_lily_note_data
-from database.add_data.mind_mod.wefe import add_wefe_data
-from database.add_data.mind_mod.cspr import add_cspr_data
-from database.add_data.mind_mod.mental_mental import add_mentalsolo_data
 from database.add_data.sleep_mod.sleep_quality import add_sleep_quality_data
 from database.add_data.sleep_mod.sleep_total_hours_slept import add_total_hours_slept_data
 from database.add_data.sleep_mod.sleep_woke_up_like import add_woke_up_like_data
 from database.add_data.sleep_mod.sleep import add_sleep_data
-
 
 
 class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
@@ -159,9 +155,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.lily_walk_model = None
         self.lily_mood_model = None
         self.lily_diet_model = None
-        self.mental_mental_model = None
-        self.cspr_model = None
-        self.wefe_model = None
         self.btn_times = None
         self.sleep_quality_model = None
         self.woke_up_like_model = None
@@ -172,34 +165,21 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui = Ui_MainWindow()
         self.setupUi(self)
         # Database init
-        self.db_manager = DataManager()
-        self.setup_models()
-        # QSettings settings_manager setup
         self.settings = QSettings(tkc.ORGANIZATION_NAME, tkc.APPLICATION_NAME)
         self.window_controller = WindowController()
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.db_manager = DataManager()
+        self.setup_models()
+        # QSettings settings_manager setup
         self.restore_state()
         self.app_operations()
-        self.auto_date_setters()
-        self.calculate_total_hours_slept()
-        self.stack_navigation()
-        self.delete_actions()
-        self.switch_page_view_setup()
-        self.init_hydration_tracker()
         self.commits_setup()
-        self.update_beck_summary()
-        self.auto_time_setters()
+        self.delete_actions()
+        self.mainStack.currentChanged.connect(self.on_page_changed)
+        self.hide_check_frame.setVisible(False)
+        last_index = self.settings.value("lastPageIndex", 0, type=int)
+        self.mainStack.setCurrentIndex(last_index)
         
-        self.summing_box.setEnabled(False)
-        for slider in [self.wellbeing_slider, self.excite_slider, self.focus_slider,
-                       self.energy_slider]:
-            slider.setRange(0, 10)
-        
-        self.wellbeing_slider.valueChanged.connect(self.update_beck_summary)
-        self.excite_slider.valueChanged.connect(self.update_beck_summary)
-        self.focus_slider.valueChanged.connect(self.update_beck_summary)
-        self.energy_slider.valueChanged.connect(self.update_beck_summary)
-    
     def commits_setup(self):
         """
         Sets up the commits for various activities.
@@ -223,10 +203,35 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.lily_in_room_commit()
         self.add_lily_notes_data()
         self.add_lily_walk_notes_data()
-        self.mental_mental_table_commit()
-        self.cspr_commit()
-        self.wefe_commit()
-        self.slider_set_spinbox()
+        
+    ##########################################################################################
+    # APP-OPERATIONS setup
+    ##########################################################################################
+    def app_operations(self):
+        """
+        Performs the necessary operations for setting up the application.
+
+        This method connects the currentChanged signal of the mainStack to the on_page_changed slot,
+        hides the check frame, connects the triggered signal of the actionTotalHours to the
+        calculate_total_hours_slept slot, and sets the current index of the mainStack based on the
+        last saved index.
+
+        Raises:
+            Exception: If an error occurs while setting up the app_operations.
+
+        """
+        try:
+            self.auto_date_setters()
+            self.calculate_total_hours_slept()
+            self.stack_navigation()
+            self.switch_page_view_setup()
+            self.init_hydration_tracker()
+            self.auto_time_setters()
+            self.slider_set_spinbox()
+            self.actionTotalHours.triggered.connect(self.calculate_total_hours_slept)
+            
+        except Exception as e:
+            logger.error(f"Error occurred while setting up app_operations : {e}", exc_info=True)
     
     def init_hydration_tracker(self):
         """
@@ -262,18 +267,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         connect_slider_to_spinbox = {
-            self.wellbeing_slider: self.wellbeing_spinbox,
-            self.excite_slider: self.excite_spinbox,
-            self.focus_slider: self.focus_spinbox,
-            self.energy_slider: self.energy_spinbox,
-            self.mood_slider: self.mood,
-            self.mania_slider: self.mania,
-            self.depression_slider: self.depression,
-            self.mixed_risk_slider: self.mixed_risk,
-            self.calm_slider: self.calm_spinbox,
-            self.stress_slider: self.stress_spinbox,
-            self.rage_slider: self.rage_spinbox,
-            self.pain_slider: self.pain_spinbox,
             self.lily_time_in_room_slider: self.lily_time_in_room,
             self.lily_mood_slider: self.lily_mood,
             self.lily_mood_activity_slider: self.lily_activity,
@@ -308,26 +301,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 time_label.setTime(current_time)
         except Exception as e:
             logger.error(f"Error updating time. {e}", exc_info=True)
-    
-    def update_beck_summary(self):
-        """
-        Updates the averages of the sliders in the wellbeing and pain module such that
-        the overall is the average of the whole.
-
-        :return: None
-        """
-        try:
-            values = [slider.value() for slider in
-                      [self.wellbeing_slider, self.excite_slider, self.focus_slider,
-                       self.energy_slider] if
-                      slider.value() > 0]
-
-            s = sum(values)
-
-            self.summing_box.setValue(int(s))
-
-        except Exception as e:
-            logger.error(f"{e}", exc_info=True)
             
     def switch_bds_page(self):
         """
@@ -343,8 +316,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         None
         """
         self.mainStack.setCurrentWidget(self.bds_page)
-        self.resize(291, 317)
-        self.setFixedSize(291, 317)
+        self.setFixedSize(320, 340)
     
     def switch_sleep_data_page(self):
         """
@@ -353,14 +325,10 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         This method sets the current widget of the mainStack to the sleep_data_page,
         and resizes the window to a fixed size of 540x540.
 
-        Parameters:
-            None
-
         Returns:
             None
         """
         self.mainStack.setCurrentWidget(self.sleep_data_page)
-        self.resize(540, 540)
         self.setFixedSize(540, 540)
     
     def switch_to_diet_data_page(self):
@@ -377,7 +345,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         None
         """
         self.mainStack.setCurrentWidget(self.diet_data_page)
-        self.resize(800, 540)
         self.setFixedSize(800, 540)
     
     def switch_to_basics_data_page(self):
@@ -387,84 +354,11 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         This method sets the current widget of the mainStack to the basics_data_page, which is responsible for displaying
         the basics data. It also resizes the window to a fixed size of 540x540.
 
-        Parameters:
-            None
-
         Returns:
             None
         """
         self.mainStack.setCurrentWidget(self.basics_data_page)
-        self.resize(540, 540)
         self.setFixedSize(540, 540)
-    
-    def switch_to_mmdm_measures(self):
-        """
-        Switches the current widget to the 'mmdm_measures' widget and resizes the window.
-
-        This method sets the current widget of the mainStack to the 'mmdm_measures' widget,
-        and resizes the window to a width of 175 and height of 270. It also sets the window
-        size to a fixed size of 175x270.
-
-        Parameters:
-            None
-
-        Returns:
-            None
-        """
-        self.mainStack.setCurrentWidget(self.mmdm_measures)
-        self.resize(215, 300)
-        self.setFixedSize(215, 300)
-    
-    def switch_to_wefe_measures(self):
-        """
-        Switches the current widget to the WEFE measurements widget and adjusts the window size.
-
-        This method sets the current widget of the `mainStack` to the `wefe_measurements` widget.
-        It also resizes the window to a width of 175 pixels and a height of 270 pixels, and fixes the window size to these dimensions.
-
-        Parameters:
-            None
-
-        Returns:
-            None
-        """
-        self.mainStack.setCurrentWidget(self.wefe_measurements)
-        self.resize(215, 300)
-        self.setFixedSize(215, 300)
-    
-    def cspr_measures(self):
-        """
-        Switches the current widget to cspr_measurements and adjusts the window size.
-
-        This method sets the current widget of the mainStack to cspr_measurements,
-        and resizes the window to a width of 175 and height of 270. It also fixes
-        the window size to prevent further resizing.
-
-        Parameters:
-            None
-
-        Returns:
-            None
-        """
-        self.mainStack.setCurrentWidget(self.cspr_measurements)
-        self.resize(215, 300)
-        self.setFixedSize(215, 300)
-    
-    def mmwefecspr_datapage(self):
-        """
-        Switches the current widget to the mmwefecspr_dataviews widget and sets the window size to 800x460.
-
-        This method is responsible for displaying the data page in the main window.
-
-        Parameters:
-            None
-
-        Returns:
-            None
-        """
-        self.mainStack.setCurrentWidget(self.mmwefecspr_dataviews)
-        self.resize(800, 460)
-        self.setFixedSize(800, 460)
     
     def switch_lilys_mod(self):
         """
@@ -473,14 +367,10 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         This method sets the current widget of the mainStack to the 'lilys_mod' widget and resizes the window
         to a width of 250 pixels and a height of 314 pixels. The window size is then fixed to prevent further resizing.
 
-        Parameters:
-            None
-
         Returns:
             None
         """
         self.mainStack.setCurrentWidget(self.lilys_mod)
-        self.resize(300, 314)
         self.setFixedSize(300, 314)
     
     def switch_to_lilys_dataviews(self):
@@ -490,16 +380,27 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         This method sets the current widget of the mainStack to the Lily's DataViews widget,
         and resizes the window to a width of 800 pixels and a height of 456 pixels.
 
-        Parameters:
-        None
-
         Returns:
         None
         """
         self.mainStack.setCurrentWidget(self.lilys_dataviews)
-        self.resize(800, 456)
-        self.setFixedSize(800, 456)
-    
+        self.setFixedSize(860, 456)
+        
+    def switch_page_view_setup(self):
+        """
+        Connects the various actions to their corresponding methods for switching pages/views.
+
+        This method sets up the connections between the menu actions and the methods that handle
+        switching to different pages/views in the application.
+
+        """
+        self.actionBDSInput.triggered.connect(self.switch_bds_page)
+        self.actionSleepDataView.triggered.connect(self.switch_sleep_data_page)
+        self.actionDietDataView.triggered.connect(self.switch_to_diet_data_page)
+        self.actionBasicsDataView.triggered.connect(self.switch_to_basics_data_page)
+        self.actionLilysPage.triggered.connect(self.switch_lilys_mod)
+        self.actionLilyDataView.triggered.connect(self.switch_to_lilys_dataviews)
+        
     def auto_date_setters(self) -> None:
         """
         Sets the date for various widgets to the current date.
@@ -522,9 +423,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             self.diet_date.setDate(QDate.currentDate())
             self.sleep_date.setDate(QDate.currentDate())
             self.basics_date.setDate(QDate.currentDate())
-            self.mental_mental_date.setDate(QDate.currentDate())
-            self.wefe_date.setDate(QDate.currentDate())
-            self.cspr_date.setDate(QDate.currentDate())
             self.lily_date.setDate(QDate.currentDate())
         except Exception as e:
             logger.error(f"Probs with auto dates, {e}", exc_info=True)
@@ -550,38 +448,10 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         try:
             self.diet_time.setTime(QTime.currentTime())
             self.sleep_time.setTime(QTime.currentTime())
-            self.mental_mental_time.setTime(QTime.currentTime())
             self.basics_time.setTime(QTime.currentTime())
-            self.wefe_time.setTime(QTime.currentTime())
-            self.cspr_time.setTime(QTime.currentTime())
             self.lily_time.setTime(QTime.currentTime())
         except Exception as e:
             logger.error(f"Probs with auto time, {e}", exc_info=True)
-    
-    ##########################################################################################
-    # APP-OPERATIONS setup
-    ##########################################################################################
-    def app_operations(self):
-        """
-        Performs the necessary operations for setting up the application.
-
-        This method connects the currentChanged signal of the mainStack to the on_page_changed slot,
-        hides the check frame, connects the triggered signal of the actionTotalHours to the
-        calculate_total_hours_slept slot, and sets the current index of the mainStack based on the
-        last saved index.
-
-        Raises:
-            Exception: If an error occurs while setting up the app_operations.
-
-        """
-        try:
-            self.mainStack.currentChanged.connect(self.on_page_changed)
-            self.hide_check_frame.setVisible(False)
-            self.actionTotalHours.triggered.connect(self.calculate_total_hours_slept)
-            last_index = self.settings.value("lastPageIndex", 0, type=int)
-            self.mainStack.setCurrentIndex(last_index)
-        except Exception as e:
-            logger.error(f"Error occurred while setting up app_operations : {e}", exc_info=True)
     
     def commits_set_times(self):
         """
@@ -598,9 +468,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             }
 
         The lineEdits are then connected to the centralized function `btn_times` using a for loop.
-
-        Args:
-            None
 
         Returns:
             None
@@ -686,9 +553,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             mainStackNavvy = {
                 self.actionBDSInput: 0, self.actionSleepDataView: 1,
                 self.actionDietDataView: 2, self.actionBasicsDataView: 3,
-                self.actionMMDMView: 4, self.actionWEFEView: 5,
-                self.actionCSPRView: 6, self.actionExamDataViews: 7,
-                self.actionLilysPage: 8, self.actionLilyDataView: 9,
+                self.actionLilysPage: 4, self.actionLilyDataView: 5,
             }
             
             # Main Stack Navigation
@@ -698,98 +563,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         
         except Exception as e:
             logger.error(f"An error has occurred: {e}", exc_info=True)
-    
-    def switch_page_view_setup(self):
-        """
-        Connects the various actions to their corresponding methods for switching pages/views.
-
-        This method sets up the connections between the menu actions and the methods that handle
-        switching to different pages/views in the application.
-
-        """
-        self.actionBDSInput.triggered.connect(self.switch_bds_page)
-        self.actionSleepDataView.triggered.connect(self.switch_sleep_data_page)
-        self.actionDietDataView.triggered.connect(self.switch_to_diet_data_page)
-        self.actionBasicsDataView.triggered.connect(self.switch_to_basics_data_page)
-        self.actionMMDMView.triggered.connect(self.switch_to_mmdm_measures)
-        self.actionWEFEView.triggered.connect(self.switch_to_wefe_measures)
-        self.actionCSPRView.triggered.connect(self.cspr_measures)
-        self.actionExamDataViews.triggered.connect(self.mmwefecspr_datapage)
-        self.actionLilysPage.triggered.connect(self.switch_lilys_mod)
-        self.actionLilyDataView.triggered.connect(self.switch_to_lilys_dataviews)
-    
-    def mental_mental_table_commit(self) -> None:
-        """
-        Connects the 'commit' action to the 'add_mentalsolo_data' function and inserts data into the mental_mental_table.
-
-        This method connects the 'commit' action to the 'add_mentalsolo_data' function, which is responsible for inserting data into the mental_mental_table. It sets up the connection using the `triggered.connect()` method and passes the necessary data to the `add_mentalsolo_data` function.
-
-        Raises:
-            Exception: If an error occurs during the process.
-        """
-        try:
-            self.actionCommitMMDM.triggered.connect(
-                lambda: add_mentalsolo_data(
-                    self, {
-                        "mental_mental_date": "mental_mental_date",
-                        "mental_mental_time": "mental_mental_time",
-                        "mood_slider": "mood_slider",
-                        "mania_slider": "mania_slider",
-                        "depression_slider": "depression_slider",
-                        "mixed_risk_slider": "mixed_risk_slider",
-                        "model": "mental_mental_model"
-                    },
-                    self.db_manager.insert_into_mental_mental_table, ))
-        except Exception as e:
-            logger.error(f"An Error has occurred {e}", exc_info=True)
-    
-    def cspr_commit(self) -> None:
-        """
-        Connects the 'Commit CSPR' action to the 'add_cspr_data' function and inserts the CSPR exam data into the database.
-
-        Raises:
-            Exception: If an error occurs during the execution of the method.
-        """
-        try:
-            self.actionCommitCSPR.triggered.connect(
-                lambda: add_cspr_data(
-                    self, {
-                        "cspr_date": "cspr_date",
-                        "cspr_time": "cspr_time",
-                        "calm_slider": "calm_slider",
-                        "stress_slider": "stress_slider",
-                        "pain_slider": "pain_slider",
-                        "rage_slider": "rage_slider",
-                        "model": "cspr_model"
-                    },
-                    self.db_manager.insert_into_cspr_exam, ))
-        except Exception as e:
-            logger.error(f"An Error has occurred {e}", exc_info=True)
-    
-    def wefe_commit(self) -> None:
-        """
-        Connects the actionCommitWEFE signal to the add_wefe_data function with the specified parameters.
-        Inserts the WEFE data into the WEFE table using the db_manager.
-
-        Raises:
-            Exception: If an error occurs during the execution of the method.
-        """
-        try:
-            self.actionCommitWEFE.triggered.connect(
-                lambda: add_wefe_data(
-                    self, {
-                        "wefe_date": "wefe_date",
-                        "wefe_time": "wefe_time",
-                        "wellbeing_slider": "wellbeing_slider",
-                        "excite_slider": "excite_slider",
-                        "focus_slider": "focus_slider",
-                        "energy_slider": "energy_slider",
-                        "summing_box": "summing_box",
-                        "model": "wefe_model"
-                    },
-                    self.db_manager.insert_into_wefe_table, ))
-        except Exception as e:
-            logger.error(f"An Error has occurred {e}", exc_info=True)
     
     # SLEEP COMMIT
     #######################################################################################
@@ -1107,36 +880,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
                     self,
-                    'wefe_tableview',
-                    'wefe_model'
-                )
-            )
-        except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)    
-        try:
-            self.actionDelete.triggered.connect(
-                lambda: delete_selected_rows(
-                    self,
-                    'cspr_tableview',
-                    'cspr_model'
-                )
-            )
-        except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
-        try:
-            self.actionDelete.triggered.connect(
-                lambda: delete_selected_rows(
-                    self,
-                    'mental_mental_table',
-                    'mental_mental_model'
-                )
-            )
-        except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
-        try:
-            self.actionDelete.triggered.connect(
-                lambda: delete_selected_rows(
-                    self,
                     'sleep_tableview',
                     'sleep_model'
                 )
@@ -1296,21 +1039,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
 
         """
         try:
-            self.wefe_model = create_and_set_model(
-                "wefe_table",
-                self.wefe_tableview
-            )
-            
-            self.cspr_model = create_and_set_model(
-                "cspr_table",
-                self.cspr_tableview
-            )
-            
-            self.mental_mental_model = create_and_set_model(
-                "mental_mental_table",
-                self.mental_mental_table
-            )
-            
             self.sleep_model = create_and_set_model(
                 "sleep_table",
                 self.sleep_tableview
